@@ -1,0 +1,29 @@
+name: Publication PyPI
+
+# Une version publiée sur GitHub (étiquette vX.Y.Z) publie le paquet sur PyPI par publication de
+# confiance (OIDC) : aucun mot de passe ni jeton PyPI n'est stocké.
+on:
+  release:
+    types: [published]
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Version attendue
+        run: |
+          v=$(python -c "import re;print(re.search(r'__version__ = \"(.+)\"', open('src/reperes/__init__.py').read()).group(1))")
+          test "v$v" = "${GITHUB_REF_NAME}" || { echo "Étiquette ${GITHUB_REF_NAME} ≠ version $v"; exit 1; }
+      - name: Tests
+        run: PYTHONPATH=src:tests python -m unittest discover -s tests -t tests
+      - name: Construction
+        run: python -m pip install build && python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1

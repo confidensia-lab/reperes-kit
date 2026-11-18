@@ -1,0 +1,289 @@
+"""Commande `reperes` : l'API REPERES en ligne de commande, au-dessus du SDK.
+
+    export REPERES_API_KEY=rpr_sk_…
+    reperes context "Quels repères pour construire un projet de service ?" --exploration
+    reperes precision "Quelle est la durée maximale d'un CPOM ?"
+    printf '%s' 'Ma question' | reperes context -
+    reperes valeur smic.horaire --date 2025-03-01
+    reperes valeur apa.domicile.plafond --coord gir=1
+    reperes valeur "plafond APA GIR 1"            (question : valeur du paramètre retenu)
+    reperes valeur point.ccn66 --historique
+    reperes valeurs --q "valeur du point"         (paramètres candidats) ; --famille cotisations
+    reperes remuneration ccn66 educateur_specialise --anciennete 10 --etablissement mecs --oui surclassement_internat
+    reperes remuneration --modeles                 (conventions, emplois, types d'établissement)
+    reperes trajectoire ccn66 moniteur_educateur --etablissement ime --lecture carriere --debut 2016
+    reperes esat --part 30
+    reperes autonomie scenario.json --prix 32      (démonstrateur APA ; un cas de référence est accepté)
+    reperes source <id> --content                  (public)
+    reperes contrats ; reperes schema calcul.esat.v1 ; reperes openapi   (publics)
+
+Sortie : le JSON reçu sur stdout ; les erreurs sur stderr, avec le code HTTP et le code d'erreur de
+l'API, jamais la clé. Codes de sortie : 0 succès (y compris un statut métier : `not_found`,
+contexte vide) ; 1 erreur HTTP ou réseau, clé absente, ou livraison dégradée (recherche
+`unavailable`, précision `error`, valeur `technical_error`, simulation `erreur`) ; 2 arguments
+invalides.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+from typing import Any
+
+from . import __version__
+from .client import URL_PAR_DEFAUT, Reperes
+from .erreurs import ErreurConfiguration, ErreurReperes
+
+PARAMETRE_RE = re.compile(r"^[a-z0-9_]+(\.[a-z0-9_]+)*$")
+
+
+def degrade(resultat: Any) -> bool:
+    """Livraison à ne pas confondre avec un succès : recherche en panne, statut d'erreur."""
+    if not isinstance(resultat, dict):
+        return False
+    recherche = (resultat.get("metadata") or {}).get("retrieval") or {}
+    return (recherche.get("status") == "unavailable" or resultat.get("status") in {"error", "technical_error"}
+            or resultat.get("statut") == "erreur")
+
+
+def coordonnees(paires: list[str]) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for c in paires:
+        k, sep, v = c.partition("=")
+        if not sep or not k or not v:
+            raise ErreurConfiguration(f"Coordonnée invalide : {c} (dimension=valeur attendu).")
+        out[k] = v
+    return out
+
+
+def profil_remuneration(args: argparse.Namespace) -> dict:
+    """Profil `calcul.remuneration.v1` depuis les options (un fichier `--profil` sert de base)."""
+    profil: dict = {}
+    if args.profil:
+        try:
+            with open(args.profil, encoding="utf-8") as f:
+                profil = json.load(f)
+        except (OSError, ValueError):
+            raise ErreurConfiguration(f"Profil illisible : {args.profil}.") from None
+        if not isinstance(profil, dict):
+            raise ErreurConfiguration("Profil : objet JSON attendu.")
+    for cle, valeur in (("convention", args.convention), ("emploi", args.emploi), ("date", args.date),
+                        ("anciennete_ans", args.anciennete), ("temps_travail", args.temps),
+                        ("type_etablissement", args.etablissement), ("territoire", args.territoire),
+                        ("classement", args.classement)):
+        if valeur is not None:
+            profil[cle] = valeur
+    for noms, oui in ((args.oui, True), (args.non, False)):
+        for ident in noms:
+            profil.setdefault("reponses", {})[ident] = oui
+    for q in args.quantite:
+        k, sep, v = q.partition("=")
+        if not sep or not k or not v:
+            raise ErreurConfiguration(f"Quantité invalide : {q} (identifiant=nombre attendu).")
+        profil.setdefault("quantites", {})[k] = v
+    employeur = profil.setdefault("employeur", {})
+    if args.effectif is not None:
+        employeur["effectif"] = args.effectif
+    if args.taux_atmp is not None:
+        employeur["taux_atmp"] = args.taux_atmp
+    if not employeur:
+        del profil["employeur"]
+    if not profil.get("convention") or not profil.get("emploi"):
+        raise ErreurConfiguration("Convention et emploi requis (voir `reperes remuneration --modeles`).")
+    return profil
+
+
+def demande_trajectoire(args: argparse.Namespace) -> dict:
+    """Demande `calcul.trajectoire.v1` : profil des options (sans date), période, lecture, mois de
+    référence des prix."""
+    profil = profil_remuneration(args)
+    profil.pop("date", None)
+    demande: dict = {"profil": profil}
+    for cle, valeur in (("debut", args.debut), ("fin", args.fin), ("lecture", args.lecture), ("reference", args.reference)):
+        if valeur is not None:
+            demande[cle] = valeur
+    return demande
+
+
+def demande_esat(args: argparse.Namespace) -> dict:
+    """Demande `calcul.esat.v1` : part de l'ESAT en % du SMIC ou en euros du mois."""
+    if (args.part is None) == (args.euros is None):
+        raise ErreurConfiguration("Part de l'ESAT : --part (en % du SMIC) ou --euros (par mois), l'un des deux.")
+    d: dict = {"part_esat": {"pct_smic": args.part} if args.part is not None else {"mensuelle": args.euros}}
+    if args.date:
+        d["date"] = args.date
+    if args.temps is not None:
+        d["temps_travail"] = args.temps
+    if args.effectif is not None:
+        d["effectif"] = args.effectif
+    couverture = {k: v for k, v in (("sante_esat", args.sante_esat), ("sante_travailleur", args.sante_travailleur),
+                                    ("prevoyance_esat", args.prevoyance)) if v is not None}
+    if couverture:
+        d["couverture"] = couverture
+    return d
+
+
+def scenario_autonomie(args: argparse.Namespace) -> dict:
+    """Scénario `calcul.autonomie.v1` lu dans un fichier (ou `-` : entrée standard) ; les options
+    modifient une hypothèse pour un rejeu."""
+    try:
+        if args.scenario == "-":
+            sc = json.loads(sys.stdin.read())
+        else:
+            with open(args.scenario, encoding="utf-8") as f:
+                sc = json.load(f)
+    except (OSError, ValueError):
+        raise ErreurConfiguration(f"Scénario illisible : {args.scenario}.") from None
+    if isinstance(sc, dict) and isinstance(sc.get("entree"), dict):
+        sc = sc["entree"]  # cas de référence : son entrée
+    if not isinstance(sc, dict):
+        raise ErreurConfiguration("Scénario : objet JSON attendu.")
+    if args.date:
+        sc["date"] = args.date
+    if args.prix is not None:
+        sc.setdefault("realise", {})["prix_horaire"] = args.prix
+    if args.taux is not None:
+        sc.setdefault("plan", {})["taux_participation"] = args.taux
+    return sc
+
+
+AIDE = {
+    "context": "contexte sourcé, sans rédaction",
+    "precision": "information ponctuelle et citation vérifiée",
+    "answer": "réponse rédigée (option Génération ou crédits)",
+    "valeur": "valeur de référence datée et sourcée (identifiant ou question)",
+    "valeurs": "recherche ou catalogue des valeurs de référence",
+    "remuneration": "simulation de rémunération conventionnelle (brut, net, coût employeur)",
+    "trajectoire": "trajectoire d'une rémunération conventionnelle en euros courants et constants",
+    "esat": "rémunération garantie d'un travailleur d'ESAT : part de l'ESAT et aide au poste",
+    "autonomie": "démonstrateur APA à domicile : plan d'aide et reste à charge d'un mois",
+    "source": "passeport de preuve d'un document (public)",
+    "contrats": "contrats de réponse publiés (public)",
+    "schema": "schéma JSON d'un contrat (public)",
+    "openapi": "description OpenAPI de l'API (public)",
+}
+
+
+def analyseur() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="reperes", description="L'API REPERES en ligne de commande.")
+    parser.add_argument("--version", action="version", version=f"reperes {__version__}")
+    sub = parser.add_subparsers(dest="commande", required=True)
+    for commande, aide in AIDE.items():
+        p = sub.add_parser(commande, help=aide)
+        if commande in {"context", "precision", "answer"}:
+            p.add_argument("query", help="question, ou - pour la lire sur l'entrée standard")
+            if commande == "context":
+                p.add_argument("--exploration", action="store_true", help="balayage documentaire élargi")
+        elif commande == "source":
+            p.add_argument("id", help="identifiant `sources[].id`")
+            p.add_argument("--content", action="store_true", help="avec le texte du document")
+        elif commande == "schema":
+            p.add_argument("contrat", help="nom du contrat, ex. calcul.esat.v1")
+        elif commande == "valeur":
+            p.add_argument("cible", help="identifiant (ex. smic.horaire) ou question en français")
+            p.add_argument("--date", help="date de lecture AAAA-MM-JJ (défaut : aujourd'hui)")
+            p.add_argument("--territoire", help="nat_FR (défaut), dep_976, dep_2A…")
+            p.add_argument("--coord", action="append", default=[], help="coordonnée dimension=valeur (répétable)")
+            p.add_argument("--historique", action="store_true", help="toutes les valeurs successives")
+        elif commande == "valeurs":
+            p.add_argument("--q", help="valeur cherchée, en français")
+            p.add_argument("--famille", help="famille de paramètres (catalogue)")
+        elif commande in {"remuneration", "trajectoire"}:
+            p.add_argument("convention", nargs="?", help="ccn66, ccn51")
+            p.add_argument("emploi", nargs="?", help="identifiant d'emploi (voir `reperes remuneration --modeles`)")
+            p.add_argument("--profil", help="profil JSON complet (les options le complètent)")
+            if commande == "remuneration":
+                p.add_argument("--modeles", action="store_true", help="conventions, emplois et types d'établissement")
+                p.add_argument("--date", help="date AAAA-MM-JJ (défaut : aujourd'hui)")
+                p.add_argument("--anciennete", help="ancienneté retenue dans l'emploi, en années")
+            else:
+                p.set_defaults(date=None)
+                p.add_argument("--anciennete", help="ancienneté la première année, en années")
+                p.add_argument("--debut", type=int, help="première année (défaut 2014)")
+                p.add_argument("--fin", type=int, help="dernière année (défaut : dernier IPC publié)")
+                p.add_argument("--lecture", choices=["poste_constant", "carriere"], help="poste constant (défaut) ou carrière")
+                p.add_argument("--reference", help="mois de référence des euros constants AAAA-MM")
+            p.add_argument("--temps", help="part d'un temps plein (défaut 1)")
+            p.add_argument("--etablissement", help="type d'établissement (ehpad, mecs, ime…)")
+            p.add_argument("--territoire", help="nat_FR (défaut), dep_971…")
+            p.add_argument("--classement", help="emploi de classement d'un emploi d'usage")
+            p.add_argument("--oui", action="append", default=[], help="question à laquelle répondre oui (répétable)")
+            p.add_argument("--non", action="append", default=[], help="question à laquelle répondre non (répétable)")
+            p.add_argument("--quantite", action="append", default=[], help="élément variable identifiant=nombre (répétable)")
+            p.add_argument("--effectif", type=int, help="effectif de l'entreprise")
+            p.add_argument("--taux-atmp", dest="taux_atmp", help="taux AT/MP notifié (%%)")
+        elif commande == "esat":
+            p.add_argument("--part", help="part financée par l'ESAT, en %% du SMIC")
+            p.add_argument("--euros", help="part financée par l'ESAT, en euros du mois")
+            p.add_argument("--temps", help="part d'un temps plein (défaut 1)")
+            p.add_argument("--date", help="date AAAA-MM-JJ (défaut : aujourd'hui)")
+            p.add_argument("--effectif", type=int, help="effectif de l'organisme gestionnaire (FNAL)")
+            p.add_argument("--sante-esat", dest="sante_esat", help="complémentaire santé, part de l'ESAT (€ par mois)")
+            p.add_argument("--sante-travailleur", dest="sante_travailleur", help="complémentaire santé, part du travailleur (€ par mois)")
+            p.add_argument("--prevoyance", help="prévoyance, cotisation de l'ESAT (€ par mois)")
+        elif commande == "autonomie":
+            p.add_argument("scenario", help="scénario JSON (ou cas de référence), - pour l'entrée standard")
+            p.add_argument("--date", help="date de lecture des barèmes AAAA-MM-JJ")
+            p.add_argument("--prix", help="tarif horaire facturé par le service")
+            p.add_argument("--taux", help="taux de participation notifié (%%)")
+        p.add_argument("--base-url", default=os.getenv("REPERES_API_URL") or URL_PAR_DEFAUT)
+        p.add_argument("--timeout", type=float, default=180, help="secondes (défaut 180)")
+        p.add_argument("--pretty", action="store_true", help="JSON indenté")
+    return parser
+
+
+def executer(client: Reperes, args: argparse.Namespace, parser: argparse.ArgumentParser) -> Any:
+    c = args.commande
+    if c in {"context", "precision", "answer"}:
+        question = (sys.stdin.read() if args.query == "-" else args.query).strip()
+        if not question:
+            parser.error("La question est vide.")
+        if c == "context":
+            return client.context(question, exploration=args.exploration)
+        return client.precision(question) if c == "precision" else client.answer(question)
+    if c == "valeur":
+        cible = args.cible.strip()
+        if not cible:
+            parser.error("Identifiant ou question vide.")
+        coords = coordonnees(args.coord)
+        if PARAMETRE_RE.match(cible):
+            if args.historique:
+                return client.historique(cible, territoire=args.territoire, coordonnees=coords)
+            return client.valeur(cible, date=args.date, territoire=args.territoire, coordonnees=coords)
+        if args.historique:
+            raise ErreurConfiguration("--historique exige un identifiant de paramètre (voir `reperes valeurs --q`).")
+        return client.resoudre(cible, date=args.date, territoire=args.territoire, coordonnees=coords)
+    if c == "valeurs":
+        return client.rechercher(args.q, famille=args.famille)
+    if c == "remuneration":
+        return client.modeles() if args.modeles else client.remuneration(profil_remuneration(args))
+    if c == "trajectoire":
+        return client.trajectoire(demande_trajectoire(args))
+    if c == "esat":
+        return client.esat(demande_esat(args))
+    if c == "autonomie":
+        return client.autonomie(scenario_autonomie(args))
+    if c == "source":
+        if not args.id.strip():
+            parser.error("Identifiant vide.")
+        return client.source(args.id, contenu=args.content)
+    if c == "contrats":
+        return client.contrats()
+    if c == "schema":
+        return client.schema(args.contrat)
+    return client.openapi()
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = analyseur()
+    args = parser.parse_args(argv)
+    try:
+        client = Reperes(base_url=args.base_url, timeout=args.timeout)
+        resultat = executer(client, args, parser)
+    except ErreurReperes as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    print(json.dumps(resultat, ensure_ascii=False, indent=2 if args.pretty else None))
+    return 1 if degrade(resultat) else 0

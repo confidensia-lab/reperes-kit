@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reperes"
+dynamic = ["version"]
+description = "SDK Python et CLI de l'API REPERES : contexte documentaire sourcé, valeurs de référence et simulateurs du champ social et médico-social"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "BMSE" }]
+keywords = ["REPERES", "ESSMS", "médico-social", "API", "MCP", "valeurs de référence", "simulateur"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://reperes.bmse.fr/docs"
+Source = "https://github.com/confidensia-lab/reperes-kit"
+
+[project.scripts]
+reperes = "reperes.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "reperes.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+reperes = ["py.typed"]
