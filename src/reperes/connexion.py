@@ -20,6 +20,7 @@ import sys
 from typing import Any, Protocol
 
 from .client import Reperes
+from ._http import erreur_http
 from .erreurs import ErreurConfiguration, ErreurReperes, ServiceIndisponible
 from .outils import OUTILS_FRAMEWORK, Outil, executer_par_api
 
@@ -43,7 +44,8 @@ def outils(connexion: Connexion, noms: list[str] | None = None) -> list[Outil]:
         raise ErreurConfiguration(f"Outils absents du catalogue REPERES : {', '.join(manquants)}.")
     return [
         Outil(nom=n, description=defs[n].get("description", ""), schema=defs[n].get("inputSchema") or {"type": "object"},
-              executer=lambda a, n=n: connexion.executer(n, a))
+              executer=lambda a, n=n: connexion.executer(n, a),
+              lecture_seule=(defs[n].get("annotations") or {}).get("readOnlyHint"))
         for n in choisis
     ]
 
@@ -85,8 +87,9 @@ class ConnexionCLI:
         except (OSError, subprocess.TimeoutExpired) as e:
             raise ServiceIndisponible(f"Commande reperes indisponible : {type(e).__name__}.") from None
         sortie = p.stdout.strip()
+        # Code 3 : résultat dégradé, rendu sur stdout comme un résultat.
         if p.returncode != 0 and not sortie:
-            raise ErreurReperes(p.stderr.strip() or f"reperes : code de sortie {p.returncode}.")
+            raise _erreur_cli(p.stderr.strip(), p.returncode)
         try:
             return json.loads(sortie)
         except ValueError:
@@ -94,11 +97,28 @@ class ConnexionCLI:
 
     def definitions(self) -> list[dict[str, Any]]:
         if self._definitions is None:
-            d = self._lancer(["outils"])
+            d = self._lancer(["outils", "--erreurs-json"])
             self._definitions = list(d) if isinstance(d, list) else []
         return self._definitions
 
     def executer(self, nom: str, arguments: dict[str, Any]) -> dict[str, Any]:
         # Arguments sur l'entrée standard : aucun échappement de shell, rien dans la liste des processus.
-        r = self._lancer(["outil", nom, "--arguments", "-"], entree=json.dumps(arguments or {}, ensure_ascii=False))
+        r = self._lancer(["outil", nom, "--arguments", "-", "--erreurs-json"], entree=json.dumps(arguments or {}, ensure_ascii=False))
         return r if isinstance(r, dict) else {"donnees": r}
+
+
+def _erreur_cli(stderr: str, code: int) -> ErreurReperes:
+    """Erreur typée depuis la sortie d'erreur JSON de `reperes … --erreurs-json`."""
+    try:
+        e = json.loads(stderr.splitlines()[-1]) if stderr else {}
+    except ValueError:
+        e = {}
+    if isinstance(e, dict) and isinstance(e.get("statut_http"), int):
+        corps = {"error": e.get("error"), "detail": e.get("detail"), "upgrade_url": e.get("upgrade_url"),
+                 "credits_required": e.get("credits_requis"), "credits_balance": e.get("solde"),
+                 "retry_after_seconds": e.get("attente")}
+        return erreur_http(e["statut_http"], {k: v for k, v in corps.items() if v is not None}, {})
+    message = e.get("message") if isinstance(e, dict) and e.get("message") else stderr
+    if isinstance(e, dict) and e.get("error") == "ErreurConfiguration":
+        return ErreurConfiguration(message)
+    return ErreurReperes(message or f"reperes : code de sortie {code}.")

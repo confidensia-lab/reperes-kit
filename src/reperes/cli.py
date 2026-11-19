@@ -21,11 +21,12 @@
     reperes agent apa                              (conversation ; --message pour un seul tour)
     reperes agent remuneration --message "…" --session s.json --json   (piloté par un autre agent)
 
-Sortie : le JSON reçu sur stdout ; les erreurs sur stderr, avec le code HTTP et le code d'erreur de
-l'API, jamais la clé. Codes de sortie : 0 succès (y compris un statut métier : `not_found`,
-contexte vide) ; 1 erreur HTTP ou réseau, clé absente, ou livraison dégradée (recherche
-`unavailable`, précision `error`, valeur `technical_error`, simulation `erreur`) ; 2 arguments
-invalides.
+Sortie : le JSON reçu sur stdout, seul ; les erreurs sur stderr (`--erreurs-json` : objet JSON
+`{"error", "message", "statut_http", "detail", "upgrade_url"…}`), jamais la clé. Codes de sortie,
+stables : 0 succès (y compris un statut métier : `not_found`, contexte vide) ; 1 échec sans résultat
+(erreur HTTP ou réseau, clé absente, droit, crédits) ; 2 arguments invalides ; 3 résultat rendu mais
+dégradé (recherche `unavailable`, précision `error`, valeur `technical_error`, simulation `erreur`), le
+JSON restant sur stdout. Aucune invite interactive, sauf `reperes agent` sans `--message`.
 """
 from __future__ import annotations
 
@@ -39,7 +40,7 @@ from typing import Any
 from . import __version__
 from .client import URL_PAR_DEFAUT, Reperes
 from .erreurs import ErreurConfiguration, ErreurReperes
-from .outils import executer_par_api
+from .outils import OUTILS_FRAMEWORK, executer_par_api
 
 PARAMETRE_RE = re.compile(r"^[a-z0-9_]+(\.[a-z0-9_]+)*$")
 
@@ -171,6 +172,7 @@ AIDE = {
     "outils": "outils REPERES pour un modèle : définitions publiées (public)",
     "outil": "exécuter un outil REPERES : arguments JSON, résultat JSON",
     "agent": "agent d'un kit (apa, remuneration, esat) : conversation, ou un tour avec --message",
+    "skills": "compétences Agent Skills des kits : liste, ou export pour un agent de code",
 }
 
 
@@ -192,6 +194,7 @@ def analyseur() -> argparse.ArgumentParser:
         elif commande == "outil":
             p.add_argument("nom", help="nom de l'outil (voir `reperes outils`), ex. reperes_valeur")
             p.add_argument("--arguments", default="{}", help="arguments JSON, ou - pour les lire sur l'entrée standard")
+            p.add_argument("--decrire", action="store_true", help="définition de l'outil (description, schéma des arguments), sans l'exécuter")
         elif commande == "agent":
             p.add_argument("kit", nargs="?", help="apa, remuneration ou esat (--liste pour la liste)")
             p.add_argument("--liste", action="store_true", help="kits disponibles")
@@ -200,6 +203,8 @@ def analyseur() -> argparse.ArgumentParser:
             p.add_argument("--connexion", choices=["api", "cli"], default="api", help="REPERES par l'API (défaut) ou par la commande reperes")
             p.add_argument("--json", action="store_true", help="réponse JSON (texte, appels d'outils, montants non sourcés)")
             p.add_argument("--trace", action="store_true", help="affiche les appels d'outils sur la sortie d'erreur")
+        elif commande == "skills":
+            p.add_argument("--exporter", metavar="DOSSIER", help="copie les compétences dans DOSSIER (ex. .claude/skills)")
         elif commande == "valeur":
             p.add_argument("cible", help="identifiant (ex. smic.horaire) ou question en français")
             p.add_argument("--date", help="date de lecture AAAA-MM-JJ (défaut : aujourd'hui)")
@@ -250,6 +255,7 @@ def analyseur() -> argparse.ArgumentParser:
         p.add_argument("--base-url", default=os.getenv("REPERES_API_URL") or URL_PAR_DEFAUT)
         p.add_argument("--timeout", type=float, default=180, help="secondes (défaut 180)")
         p.add_argument("--pretty", action="store_true", help="JSON indenté")
+        p.add_argument("--erreurs-json", action="store_true", help="erreurs en JSON sur la sortie d'erreur (pilotage par un agent)")
     return parser
 
 
@@ -293,7 +299,12 @@ def executer(client: Reperes, args: argparse.Namespace, parser: argparse.Argumen
     if c == "schema":
         return client.schema(args.contrat)
     if c == "outils":
-        return client.outils_mcp()
+        return [*client.outils_mcp(), *OUTILS_FRAMEWORK.values()]
+    if c == "outil" and args.decrire:
+        for d in [*client.outils_mcp(), *OUTILS_FRAMEWORK.values()]:
+            if d.get("name") == args.nom:
+                return d
+        raise ErreurConfiguration(f"Outil inconnu : {args.nom} (voir `reperes outils`).")
     if c == "outil":
         brut = sys.stdin.read() if args.arguments == "-" else args.arguments
         try:
@@ -341,14 +352,14 @@ def agent(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
         r = a.repondre(message)
         if args.session:
             with open(args.session, "w", encoding="utf-8") as f:
-                json.dump({"kit": args.kit, **a.etat()}, f, ensure_ascii=False, indent=1)
+                json.dump({**a.etat(), "kit": args.kit}, f, ensure_ascii=False, indent=1)
         if args.json:
             print(json.dumps(r.vers_json(), ensure_ascii=False, indent=2 if args.pretty else None))
         else:
             print(r.texte)
             if r.montants_non_sources:
                 print(f"\n[À vérifier : montants sans résultat d'outil correspondant : {', '.join(r.montants_non_sources)}]", file=sys.stderr)
-        return 0 if r.termine else 1
+        return SUCCES if r.termine else DEGRADE
 
     if args.message is not None:
         message = (sys.stdin.read() if args.message == "-" else args.message).strip()
@@ -368,20 +379,52 @@ def agent(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
     return 0
 
 
+#: Codes de sortie, stables : documentés pour le pilotage par un agent.
+SUCCES, ECHEC, ARGUMENTS, DEGRADE = 0, 1, 2, 3
+
+
+def signaler(exc: ErreurReperes, en_json: bool) -> None:
+    """Erreur sur la sortie d'erreur : texte, ou objet JSON de forme stable (jamais la clé)."""
+    if en_json:
+        print(json.dumps({
+            "error": exc.code or type(exc).__name__,
+            "message": str(exc),
+            "statut_http": exc.statut_http,
+            "detail": exc.detail,
+            "upgrade_url": exc.upgrade_url,
+            **({"credits_requis": exc.credits_requis, "solde": exc.solde} if hasattr(exc, "credits_requis") else {}),
+            **({"attente": exc.attente} if hasattr(exc, "attente") else {}),
+        }, ensure_ascii=False), file=sys.stderr)
+    else:
+        print(str(exc), file=sys.stderr)
+
+
+def skills(args: argparse.Namespace) -> int:
+    from .kits import KITS, exporter_skills
+
+    if args.exporter:
+        for chemin in exporter_skills(args.exporter):
+            print(chemin)
+        return SUCCES
+    for k in KITS.values():
+        print(f"{k.skill:22} {k.titre} (kit `{k.nom}`)")
+    return SUCCES
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = analyseur()
     args = parser.parse_args(argv)
-    if args.commande == "agent":
+    if args.commande in {"agent", "skills"}:
         try:
-            return agent(args, parser)
+            return agent(args, parser) if args.commande == "agent" else skills(args)
         except ErreurReperes as exc:
-            print(str(exc), file=sys.stderr)
-            return 1
+            signaler(exc, args.erreurs_json)
+            return ECHEC
     try:
         client = Reperes(base_url=args.base_url, timeout=args.timeout)
         resultat = executer(client, args, parser)
     except ErreurReperes as exc:
-        print(str(exc), file=sys.stderr)
-        return 1
+        signaler(exc, args.erreurs_json)
+        return ECHEC
     print(json.dumps(resultat, ensure_ascii=False, indent=2 if args.pretty else None))
-    return 1 if degrade(resultat) else 0
+    return DEGRADE if degrade(resultat) else SUCCES

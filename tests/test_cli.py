@@ -65,11 +65,11 @@ class Commande(unittest.TestCase):
     def test_livraison_degradee_affichee_mais_en_echec(self):
         programmer((200, {"delivery": "context", "metadata": {"retrieval": {"status": "unavailable"}}}))
         code, out, _ = self.lancer("context", "Question")
-        self.assertEqual(code, 1)
+        self.assertEqual(code, 3)
         self.assertIn("unavailable", out)
         programmer((422, {"schema_version": "calcul.esat.v1", "statut": "erreur", "message": "date invalide"}))
         code, out, _ = self.lancer("esat", "--part", "30")
-        self.assertEqual(code, 1)
+        self.assertEqual(code, 3)
         self.assertEqual(json.loads(out)["statut"], "erreur")
 
     def test_valeur_identifiant_question_historique(self):
@@ -88,7 +88,7 @@ class Commande(unittest.TestCase):
         code, _, err = self.lancer("valeur", "smic.horaire", "--coord", "gir")
         self.assertIn("Coordonnée invalide", err)
         programmer((200, {"schema_version": "etalon.result.v1", "status": "technical_error"}))
-        self.assertEqual(self.lancer("valeur", "smic.horaire")[0], 1)
+        self.assertEqual(self.lancer("valeur", "smic.horaire")[0], 3)
 
     def test_contrats_et_schema_publics(self):
         programmer((200, [{"nom": "calcul.esat.v1"}]))

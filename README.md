@@ -1,9 +1,10 @@
 # REPERES — kit de développement
 
-SDK Python et CLI de l'API [REPERES](https://reperes.bmse.fr), l'outil d'expertise du champ social
-et médico-social de BMSE : contexte documentaire sourcé, information ponctuelle vérifiée, valeurs de
-référence datées et sourcées, simulateurs (rémunération conventionnelle CCN 66 et CCN 51, ESAT,
-trajectoire en euros constants, APA à domicile) et réponses rédigées.
+Framework Python pour construire des agents et des outils sur [REPERES](https://reperes.bmse.fr),
+l'outil d'expertise du champ social et médico-social de BMSE : contexte documentaire sourcé,
+information ponctuelle vérifiée, valeurs de référence datées et sourcées, simulateurs (rémunération
+CCN 66 et CCN 51, ESAT, trajectoire en euros constants, APA à domicile). Les règles, les valeurs et les
+calculs viennent de REPERES ; le kit apporte la structure pour s'en servir.
 
 Python 3.10 ou plus, aucune dépendance. Licence Apache 2.0.
 
@@ -16,137 +17,138 @@ La clé se crée sur la [page de connexion MCP](https://reperes.bmse.fr/connecte
 rubrique « Clés API » ; un compte identifié suffit, l'usage est gratuit dans la franchise mensuelle
 ([tarifs](https://reperes.bmse.fr/tarifs#api)).
 
-## SDK
+## Les briques
+
+| Brique | Rôle |
+|---|---|
+| `reperes.Reperes` | Client de l'API : contexte, précision, réponse rédigée, valeurs, simulateurs, sources, contrats |
+| `reperes.connexion` | REPERES par l'API (`ConnexionAPI`) ou par la commande `reperes` (`ConnexionCLI`) : même interface, même résultat |
+| `reperes.outils` | Outils pour modèles, tirés du catalogue publié des outils MCP ; formats OpenAI/Mistral et Anthropic ; vos outils propres |
+| `reperes.agent` | Boucle modèle ↔ outils, consignes, garde-fou de sourçage des montants, trace, session reprise |
+| `reperes.modeles` | Modèles au format de chat OpenAI (Mistral par défaut, OpenAI, serveurs locaux) ; un autre fournisseur s'ajoute en implémentant `Modele` |
+| `reperes.kits` | Agents métier prêts à l'emploi : APA à domicile, rémunération conventionnelle, ESAT ; chacun aussi en compétence Agent Skills |
+
+## Un agent en quelques lignes
+
+```python
+from reperes.agent import Agent
+from reperes.connexion import ConnexionAPI, outils
+from reperes.modeles import ModeleChat          # MISTRAL_API_KEY, ou REPERES_MODELE_URL/_CLE/REPERES_MODELE
+
+connexion = ConnexionAPI()                      # ou ConnexionCLI()
+agent = Agent(
+    ModeleChat(),
+    outils(connexion, ["reperes_context", "reperes_valeur", "reperes_autonomie"]),
+    consignes="Tu accompagnes les familles d'un service d'aide à domicile. Tu n'attribues jamais de GIR.",
+)
+r = agent.repondre("Quel reste à charge pour 30 h par mois à 29 €, GIR 2, participation 15 % ?")
+print(r.texte)
+print(r.montants_non_sources)                  # montants cités sans résultat d'outil : à vérifier
+```
+
+- **Outils.** Leurs descriptions et schémas viennent de REPERES (`Reperes.outils_mcp()`), écrits pour
+  des modèles : un outil ajouté côté REPERES devient disponible sans modifier le kit. Un outil propre
+  se déclare avec `reperes.outils.Outil(nom, description, schema, executer)`.
+- **Garde-fou.** Tout montant en euros cité doit figurer dans un résultat d'outil ou dans le message de
+  l'utilisateur ; sinon le modèle est relancé une fois, puis le montant est signalé dans
+  `montants_non_sources`, jamais réécrit.
+- **Trace et session.** `trace=` reçoit chaque appel d'outil (`AppelTrace.attributs()` au vocabulaire
+  OpenTelemetry GenAI) ; `agent.etat()` se sauve en JSON (`reperes.session.v1`) et se reprend avec
+  `Agent(..., messages=…)`.
+
+## Kits métier
+
+| Kit | Compétence | Outils |
+|---|---|---|
+| `apa` | `reperes-apa` : maintien à domicile, APA, plan d'aide, reste à charge ; consignes issues des fiches de terrain BMSE | `reperes_autonomie`, `reperes_context`, `reperes_valeur` |
+| `remuneration` | `reperes-remuneration` : brut, net, coût employeur CCN 66 et CCN 51, trajectoire | `reperes_calcul`, `reperes_modeles`, `reperes_trajectoire`, `reperes_context`, `reperes_valeur` |
+| `esat` | `reperes-esat` : rémunération garantie d'un travailleur d'ESAT | `reperes_calcul`, `reperes_context`, `reperes_valeur` |
+
+```python
+from reperes.kits import creer_agent
+from reperes.connexion import ConnexionCLI
+from reperes.modeles import ModeleChat
+
+agent = creer_agent("apa", ConnexionCLI(), ModeleChat(), consignes_supplementaires="Département : Rhône.")
+```
+
+Chaque kit est aussi une compétence au format [Agent Skills](https://agentskills.io) (`SKILL.md` et
+`references/consignes.md`, dans `src/reperes/skills/`), source unique de ses consignes. Un agent de
+code (Claude Code, Codex…) la charge telle quelle et appelle REPERES par la CLI :
+
+```bash
+reperes skills --exporter .claude/skills
+```
+
+## CLI
+
+La commande `reperes` sert deux usages : atteindre REPERES depuis un script ou un agent de code, et
+piloter un kit.
+
+```bash
+# Outils, sans modèle : déterministes, JSON en sortie
+reperes outils                                             # catalogue (définitions pour modèles)
+reperes outil reperes_autonomie --decrire                  # schéma des arguments
+reperes outil reperes_valeur --arguments '{"id": "smic.horaire", "date": "2026-03-01"}'
+echo '{"convention": "esat", "part_esat": {"pct_smic": 35}}' | reperes outil reperes_calcul --arguments -
+
+# Opérations
+reperes context "Quels repères pour construire un projet de service ?"
+reperes valeur apa.domicile.plafond --coord gir=1
+reperes remuneration ccn66 educateur_specialise --anciennete 10 --etablissement mecs
+reperes esat --part 35 --effectif 30
+
+# Agent d'un kit : conversation, ou un tour par appel avec session et sortie JSON
+reperes agent apa
+reperes agent remuneration --message "Coût d'un éducateur spécialisé, 10 ans, MECS ?" --session s.json --json
+```
+
+Contrat de sortie, stable : le JSON reçu sur stdout, seul ; les erreurs sur stderr
+(`--erreurs-json` : objet `{"error", "message", "statut_http", "detail", "upgrade_url"…}`), jamais la
+clé ; aucune invite interactive hors `reperes agent` sans `--message`.
+
+| Code | Sens |
+|---|---|
+| 0 | Succès, y compris un statut métier (`not_found`, contexte vide) |
+| 1 | Échec sans résultat : HTTP, réseau, clé, droit, crédits |
+| 2 | Arguments invalides |
+| 3 | Résultat rendu mais dégradé (simulation `erreur`, valeur indisponible) : le JSON dit pourquoi |
+
+Un agent de code a rarement besoin de `reperes agent` : il est lui-même un modèle. Il charge la
+compétence du kit et appelle `reperes outil`. `reperes agent` sert à un humain, à un script ou à un
+outil d'automatisation sans modèle.
+
+## Client de l'API
 
 ```python
 from reperes import Reperes, CreditsEpuises
 
-client = Reperes()  # clé lue dans REPERES_API_KEY
-
+client = Reperes()
 smic = client.valeur("smic.horaire", date="2026-03-01")
-print(smic["valeurs"][0]["valeur"], smic["valeurs"][0]["source"]["titre"])
-
-plafond = client.valeur("apa.domicile.plafond", coordonnees={"gir": 1})
-
-contexte = client.context("Quels repères pour construire un projet de service ?")
-for s in contexte["sources"]:
-    print(s["title"], s["url"])
-
-simulation = client.remuneration({
-    "convention": "ccn66",
-    "emploi": "educateur_specialise",
-    "anciennete_ans": 10,
-    "type_etablissement": "mecs",
-})
-print(simulation["statut"], simulation.operation_id)
+simulation = client.remuneration({"convention": "ccn66", "emploi": "educateur_specialise", "anciennete_ans": 10})
+print(simulation["statut"], simulation.operation_id, simulation.credits_debites)
 ```
 
-Chaque méthode rend un `Resultat` : le JSON de la réponse, au contrat déclaré dans `schema_version`,
-avec `operation_id` (à communiquer au support) et, quand l'opération dépasse la franchise,
-`credits_debites` et `credits_restants`.
-
-| Méthode | Route | Contrat |
-|---|---|---|
-| `context(question, exploration=False)` | `POST /api/v1/context` | contexte sourcé |
-| `precision(question)` | `POST /api/v1/precision` | information ponctuelle |
-| `answer(question)` | `POST /api/v1/answer` | réponse rédigée |
-| `valeur(id, date=, territoire=, coordonnees=)` | `GET /api/v1/valeurs/{id}` | `etalon.result.v1` |
-| `historique(id)`, `resoudre(question)`, `rechercher(q, famille=)` | `GET /api/v1/valeurs…` | `etalon.result.v1` |
-| `remuneration(profil)`, `modeles()` | `/api/v1/calcul/remuneration`, `/modeles` | `calcul.remuneration.v1` |
-| `trajectoire(demande)` | `POST /api/v1/calcul/trajectoire` | `calcul.trajectoire.v1` |
-| `esat(demande)` | `POST /api/v1/calcul/esat` | `calcul.esat.v1` |
-| `autonomie(scenario)` | `POST /api/v1/calcul/autonomie` | `calcul.autonomie.v1` |
-| `source(id, contenu=False)`, `contrats()`, `schema(nom)`, `openapi()`, `outils_mcp()` | publics | |
-
-Une simulation non couverte (emploi inconnu, date hors période) rend son résultat avec
-`statut: "erreur"` et `statut_http == 422`. Les autres échecs lèvent une erreur typée, sans jamais la
-clé ni le texte de la question :
-
-| Erreur | Cas |
-|---|---|
-| `ErreurConfiguration` | clé absente ou invalide, adresse invalide : rien n'est envoyé |
-| `ErreurRequete` | corps ou paramètre refusé (`detail` dit lequel) |
-| `ErreurAuthentification` | clé invalide ou révoquée (401) |
-| `ErreurDroit` | opération hors du droit du compte (403, `upgrade_url`) |
-| `CreditsEpuises` | franchise du mois atteinte, crédits insuffisants (402, `credits_requis`, `solde`) |
-| `DebitDepasse` | débit dépassé après les nouvelles tentatives (429, `attente`) |
-| `ServiceIndisponible` | API injoignable ou moteur indisponible (non compté) |
-
-Toutes dérivent de `ErreurReperes`. Un débit dépassé est retenté deux fois par défaut, en respectant
-`Retry-After` (`Reperes(tentatives=0)` pour s'en passer).
-
-## CLI
-
-```bash
-reperes context "Quels repères pour construire un projet de service ?" --exploration
-reperes precision "Quelle est la durée maximale d'un CPOM ?"
-reperes valeur smic.horaire --date 2026-03-01
-reperes valeur apa.domicile.plafond --coord gir=1
-reperes valeur "plafond APA GIR 1"
-reperes valeur point.ccn66 --historique
-reperes remuneration ccn66 educateur_specialise --anciennete 10 --etablissement mecs --oui surclassement_internat
-reperes remuneration --modeles
-reperes trajectoire ccn66 moniteur_educateur --etablissement ime --lecture carriere --debut 2016
-reperes esat --part 35 --effectif 30
-reperes autonomie scenario.json --prix 32
-reperes contrats
-printf '%s' 'Ma question' | reperes context -
-```
-
-Le JSON reçu sort sur stdout (`--pretty` pour l'indenter) ; les erreurs sur stderr, avec le code HTTP
-et le code d'erreur de l'API. Codes de sortie : 0 succès, y compris un statut métier (`not_found`,
-contexte vide) ; 1 erreur HTTP ou réseau, clé absente, ou livraison dégradée (recherche
-indisponible, statut d'erreur) ; 2 arguments invalides. Options communes : `--base-url` (sinon
-`REPERES_API_URL`), `--timeout` (180 secondes).
-
-## Kits : calcul hors ligne
-
-Les kits sont des calculateurs Python des contrats de REPERES, rejouables sans réseau sur un
-instantané daté des valeurs d'Étalon. Ils reproduisent au centime le moteur REPERES : mêmes lignes,
-mêmes montants, mêmes statuts, mêmes sources. Chaque version le vérifie sur les cas de référence du
-dépôt (`tests/cas/`), comparés à la sortie complète du moteur.
-
-| Kit | Contrat | Cas de référence |
-|---|---|---|
-| `reperes.kits.autonomie` | `calcul.autonomie.v1` (APA à domicile) | 18 |
-| `reperes.kits.esat` | `calcul.esat.v1` (rémunération garantie en ESAT) | 12 |
-
-```python
-from reperes import Reperes
-from reperes.kits import autonomie
-from reperes.kits.valeurs import Instantane
-
-inst = Instantane.depuis_api(Reperes(), autonomie.PARAMETRES)   # une lecture par paramètre
-inst.sauver("apa-2026-11.json")
-
-inst = Instantane.charger("apa-2026-11.json")                   # hors ligne
-r = autonomie.calculer({
-    "periode": "2026-01",
-    "personne": {"gir": 2, "provenance": "notification"},
-    "plan": {"aide_humaine": {"heures": 30, "tarif": 25.5}, "taux_participation": 15, "provenance": "notification"},
-    "realise": {"heures_dans_plan": 28, "prix_horaire": 29, "provenance": "facture"},
-}, inst)
-print(r["financement"]["reste_avant_fiscalite"])
-```
-
-Un instantané passe par l'API : il porte la source de chaque valeur et sa date de lecture. Le résultat
-de production reste celui de l'API ; le kit sert à comprendre un calcul, à le rejouer avec une
-hypothèse modifiée, à l'intégrer dans un agent ou un outil hors ligne.
+Chaque méthode rend un `Resultat` : le JSON de la réponse (contrat dans `schema_version`), avec
+`operation_id` et, au-delà de la franchise, `credits_debites` et `credits_restants`. Erreurs typées,
+sans la clé ni la question : `ErreurConfiguration`, `ErreurRequete`, `ErreurAuthentification`,
+`ErreurDroit`, `CreditsEpuises` (`credits_requis`, `solde`), `DebitDepasse` (`attente`),
+`ServiceIndisponible`, toutes dérivées de `ErreurReperes`. Un débit dépassé est retenté deux fois en
+respectant `Retry-After`.
 
 ## Exemples
 
-- [`exemples/agent_apa/`](exemples/agent_apa/) : agent conversationnel APA à domicile, avec des consignes
-  issues des fiches de terrain BMSE ; calcul hors ligne ou par l'API, doctrine et valeurs par REPERES.
-- [`exemples/contexte_minimal.py`](exemples/contexte_minimal.py) : le contexte sourcé d'une question,
-  pour votre modèle.
-- [`exemples/simulation_remuneration.py`](exemples/simulation_remuneration.py) : simulation CCN 66 par
-  l'API et rejeu avec une hypothèse modifiée.
+- [`exemples/agent_personnalise.py`](exemples/agent_personnalise.py) : consignes propres, outils REPERES
+  et un outil de votre organisation.
+- [`exemples/contexte_minimal.py`](exemples/contexte_minimal.py) : le contexte sourcé d'une question.
+- [`exemples/simulation_remuneration.py`](exemples/simulation_remuneration.py) : simulation CCN 66 et
+  rejeu avec une hypothèse modifiée.
 
 ## Documentation
 
-- [Démarrage](https://reperes.bmse.fr/docs/demarrage), [référence de l'API](https://reperes.bmse.fr/docs/api)
-- [Contrats](https://reperes.bmse.fr/docs/contrats) : le schéma JSON de chaque réponse, champ par champ
-- [Connecteur MCP](https://reperes.bmse.fr/docs/mcp) : les mêmes opérations pour un assistant
+- [Démarrage](https://reperes.bmse.fr/docs/demarrage), [référence de l'API](https://reperes.bmse.fr/docs/api),
+  [contrats](https://reperes.bmse.fr/docs/contrats), [connecteur MCP](https://reperes.bmse.fr/docs/mcp)
+- [SDK et framework](https://reperes.bmse.fr/docs/sdk), [CLI](https://reperes.bmse.fr/docs/cli)
 
 ## Développement
 

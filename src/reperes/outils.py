@@ -66,6 +66,31 @@ def executer_par_api(client: "Reperes", nom: str, arguments: dict[str, Any]) -> 
     raise ErreurConfiguration(f"Outil inconnu : {nom}.")
 
 
+def compatible(schema: Any, racine: dict[str, Any] | None = None, _vus: frozenset[str] = frozenset()) -> Any:
+    """Schéma d'arguments accepté par les fournisseurs de « function calling » : références locales
+    (`$ref` vers `$defs`) développées sur place, `oneOf` réécrit en `anyOf`, `$defs` et `$schema`
+    retirés. MCP admet ces constructions dans `inputSchema` ; plusieurs fournisseurs les refusent."""
+    if racine is None:
+        racine = schema if isinstance(schema, dict) else {}
+    if isinstance(schema, list):
+        return [compatible(x, racine, _vus) for x in schema]
+    if not isinstance(schema, dict):
+        return schema
+    ref = schema.get("$ref")
+    if isinstance(ref, str) and ref.startswith("#/") and ref not in _vus:
+        cible: Any = racine
+        for morceau in ref[2:].split("/"):
+            cible = cible.get(morceau, {}) if isinstance(cible, dict) else {}
+        reste = {k: v for k, v in schema.items() if k != "$ref"}
+        return compatible({**cible, **reste}, racine, _vus | {ref})
+    out = {}
+    for k, v in schema.items():
+        if k in {"$defs", "definitions", "$schema", "$id"}:
+            continue
+        out["anyOf" if k == "oneOf" else k] = compatible(v, racine, _vus)
+    return out
+
+
 @dataclass
 class Outil:
     """Un outil proposé au modèle : nom, description, schéma d'entrée et exécution.
@@ -77,11 +102,13 @@ class Outil:
     description: str
     schema: dict[str, Any]
     executer: Callable[[dict[str, Any]], Any] = field(repr=False)
+    #: L'outil ne modifie rien (annotation MCP `readOnlyHint`) ; `None` si non déclaré.
+    lecture_seule: bool | None = None
 
     def pour_openai(self) -> dict[str, Any]:
         """Format « function » des API de chat compatibles OpenAI (Mistral, OpenAI, serveurs locaux)."""
-        return {"type": "function", "function": {"name": self.nom, "description": self.description, "parameters": self.schema}}
+        return {"type": "function", "function": {"name": self.nom, "description": self.description, "parameters": compatible(self.schema)}}
 
     def pour_anthropic(self) -> dict[str, Any]:
         """Format des outils de l'API Messages d'Anthropic."""
-        return {"name": self.nom, "description": self.description, "input_schema": self.schema}
+        return {"name": self.nom, "description": self.description, "input_schema": compatible(self.schema)}

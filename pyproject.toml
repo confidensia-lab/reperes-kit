@@ -37,4 +37,4 @@ version = { attr = "reperes.__version__" }
 where = ["src"]
 
 [tool.setuptools.package-data]
-reperes = ["py.typed"]
+reperes = ["py.typed", "skills/*/SKILL.md", "skills/*/references/*.md"]

@@ -8,12 +8,12 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from reperes import ErreurReperes, Reperes, cli
+from reperes import CreditsEpuises, ErreurReperes, Reperes, cli
 from reperes.agent import Agent
 from reperes.connexion import ConnexionAPI, ConnexionCLI, outils
 from reperes.kits import KITS, creer_agent
 from reperes.modeles import AppelOutil, Tour, texte_de
-from reperes.outils import executer_par_api
+from reperes.outils import compatible, executer_par_api
 
 from serveur import Gestionnaire, demarrer, programmer
 
@@ -85,6 +85,14 @@ class Outils(unittest.TestCase):
         r = executer_par_api(Reperes("rpr_sk_test", base_url=self.url), "reperes_modeles", {"convention": "ccn51"})
         self.assertEqual(r["conventions"], [{"convention": "ccn51"}])
 
+    def test_schemas_rendus_compatibles(self):
+        s = {"type": "object", "$defs": {"Gir": {"type": "integer", "minimum": 1}},
+             "properties": {"gir": {"$ref": "#/$defs/Gir"}, "n": {"oneOf": [{"type": "number"}, {"type": "string"}]}}}
+        c = compatible(s)
+        self.assertNotIn("$defs", c)
+        self.assertEqual(c["properties"]["gir"], {"type": "integer", "minimum": 1})
+        self.assertEqual(c["properties"]["n"], {"anyOf": [{"type": "number"}, {"type": "string"}]})
+
     def test_formats_des_fournisseurs(self):
         o = outils(ConnexionFactice(), ["reperes_valeur", "reperes_modeles"])
         self.assertEqual(o[0].pour_openai()["function"]["name"], "reperes_valeur")
@@ -97,7 +105,7 @@ class Outils(unittest.TestCase):
         env = {**os.environ, "PYTHONPATH": SRC, "REPERES_API_KEY": "rpr_sk_test", "REPERES_API_URL": self.url}
         c = ConnexionCLI([sys.executable, "-m", "reperes"], env=env)
         programmer((200, {"outils": DEFS}))
-        self.assertEqual([d["name"] for d in c.definitions()], ["reperes_valeur", "reperes_context", "reperes_autonomie"])
+        self.assertEqual([d["name"] for d in c.definitions()], ["reperes_valeur", "reperes_context", "reperes_autonomie", "reperes_modeles"])
         programmer((200, {"schema_version": "etalon.result.v1", "status": "ok"}))
         r = c.executer("reperes_valeur", {"id": "smic.horaire", "date": "2026-03-01"})
         self.assertEqual(r["status"], "ok")
@@ -108,6 +116,12 @@ class Outils(unittest.TestCase):
             c.executer("reperes_answer", {"query": "Question"})
         self.assertIn("HTTP 403", str(e.exception))
         self.assertNotIn("rpr_sk_test", str(e.exception))
+        programmer((402, {"error": "credits_exhausted", "credits_required": 3, "credits_balance": 0}))
+        with self.assertRaises(CreditsEpuises) as e:
+            c.executer("reperes_context", {"query": "Question"})
+        self.assertEqual((e.exception.credits_requis, e.exception.solde), (3, 0))
+        programmer((200, {"schema_version": "calcul.esat.v1", "statut": "erreur", "message": "date invalide"}))
+        self.assertEqual(c.executer("reperes_calcul", {"convention": "esat", "part_esat": {"pct_smic": 30}})["statut"], "erreur")
 
 
 class AgentBoucle(unittest.TestCase):
@@ -115,6 +129,7 @@ class AgentBoucle(unittest.TestCase):
         modele = ModeleScripte(
             Tour(appels=[AppelOutil("a1", "reperes_valeur", {"id": "apa.domicile.plafond"})]),
             Tour(texte="Le plafond est de 1 682,30 € ; la participation est de 99,99 €."),
+            Tour(texte="Le plafond est de 1 682,30 € ; la participation, que j'estime, est de 99,99 €."),
         )
         c = ConnexionFactice()
         agent = Agent(modele, outils(c, ["reperes_valeur"]), "Consignes.")
@@ -124,7 +139,10 @@ class AgentBoucle(unittest.TestCase):
         self.assertEqual(r.montants_non_sources, ["99.99"])
         self.assertTrue(r.termine)
         roles = [m["role"] for m in agent.messages]
-        self.assertEqual(roles, ["system", "user", "assistant", "tool", "assistant"])
+        self.assertEqual(roles, ["system", "user", "assistant", "tool", "assistant", "user", "assistant"])
+        self.assertIn("99.99", agent.messages[5]["content"])  # relance unique du contrôle de sourçage
+        self.assertEqual(r.appels[0].attributs()["gen_ai.tool.call.id"], "a1")
+        self.assertEqual(agent.etat()["schema_version"], "reperes.session.v1")
         self.assertIn("Règle de sourçage", agent.messages[0]["content"])
         self.assertEqual(modele.recus[0][1], ["reperes_valeur"])
 
@@ -209,6 +227,21 @@ class CommandeAgent(unittest.TestCase):
             code, _, err = self.lancer("agent", "esat", "--message", "Suite", "--session", session)
             self.assertEqual(code, 1)
             self.assertIn("appartient au kit apa", err)
+
+    def test_decrire_erreurs_json_et_skills(self):
+        programmer((200, {"outils": DEFS}))
+        code, out, _ = self.lancer("outil", "reperes_modeles", "--decrire")
+        self.assertEqual((code, json.loads(out)["name"]), (0, "reperes_modeles"))
+        programmer((402, {"error": "credits_exhausted", "credits_required": 2, "credits_balance": 0}))
+        code, out, err = self.lancer("precision", "Question", "--erreurs-json")
+        e = json.loads(err)
+        self.assertEqual((code, out, e["error"], e["statut_http"], e["credits_requis"]), (1, "", "credits_exhausted", 402, 2))
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = self.lancer("skills", "--exporter", d)
+            self.assertEqual(code, 0)
+            skill = Path(d, "reperes-apa", "SKILL.md").read_text(encoding="utf-8")
+            self.assertTrue(skill.startswith("---\nname: reperes-apa\n"))
+            self.assertTrue(Path(d, "reperes-apa", "references", "consignes.md").exists())
 
     def test_outil_en_ligne_de_commande(self):
         programmer((200, {"schema_version": "etalon.result.v1", "status": "ok"}))
