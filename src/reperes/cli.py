@@ -16,6 +16,10 @@
     reperes autonomie scenario.json --prix 32      (démonstrateur APA ; un cas de référence est accepté)
     reperes source <id> --content                  (public)
     reperes contrats ; reperes schema calcul.esat.v1 ; reperes openapi   (publics)
+    reperes outils                                 (outils pour un modèle, publics)
+    reperes outil reperes_valeur --arguments '{"id": "smic.horaire"}'
+    reperes agent apa                              (conversation ; --message pour un seul tour)
+    reperes agent remuneration --message "…" --session s.json --json   (piloté par un autre agent)
 
 Sortie : le JSON reçu sur stdout ; les erreurs sur stderr, avec le code HTTP et le code d'erreur de
 l'API, jamais la clé. Codes de sortie : 0 succès (y compris un statut métier : `not_found`,
@@ -35,6 +39,7 @@ from typing import Any
 from . import __version__
 from .client import URL_PAR_DEFAUT, Reperes
 from .erreurs import ErreurConfiguration, ErreurReperes
+from .outils import executer_par_api
 
 PARAMETRE_RE = re.compile(r"^[a-z0-9_]+(\.[a-z0-9_]+)*$")
 
@@ -163,6 +168,9 @@ AIDE = {
     "contrats": "contrats de réponse publiés (public)",
     "schema": "schéma JSON d'un contrat (public)",
     "openapi": "description OpenAPI de l'API (public)",
+    "outils": "outils REPERES pour un modèle : définitions publiées (public)",
+    "outil": "exécuter un outil REPERES : arguments JSON, résultat JSON",
+    "agent": "agent d'un kit (apa, remuneration, esat) : conversation, ou un tour avec --message",
 }
 
 
@@ -181,6 +189,17 @@ def analyseur() -> argparse.ArgumentParser:
             p.add_argument("--content", action="store_true", help="avec le texte du document")
         elif commande == "schema":
             p.add_argument("contrat", help="nom du contrat, ex. calcul.esat.v1")
+        elif commande == "outil":
+            p.add_argument("nom", help="nom de l'outil (voir `reperes outils`), ex. reperes_valeur")
+            p.add_argument("--arguments", default="{}", help="arguments JSON, ou - pour les lire sur l'entrée standard")
+        elif commande == "agent":
+            p.add_argument("kit", nargs="?", help="apa, remuneration ou esat (--liste pour la liste)")
+            p.add_argument("--liste", action="store_true", help="kits disponibles")
+            p.add_argument("--message", help="un seul tour : ce message, puis sortie (- : entrée standard)")
+            p.add_argument("--session", help="fichier JSON de la conversation, repris et mis à jour à chaque tour")
+            p.add_argument("--connexion", choices=["api", "cli"], default="api", help="REPERES par l'API (défaut) ou par la commande reperes")
+            p.add_argument("--json", action="store_true", help="réponse JSON (texte, appels d'outils, montants non sourcés)")
+            p.add_argument("--trace", action="store_true", help="affiche les appels d'outils sur la sortie d'erreur")
         elif commande == "valeur":
             p.add_argument("cible", help="identifiant (ex. smic.horaire) ou question en français")
             p.add_argument("--date", help="date de lecture AAAA-MM-JJ (défaut : aujourd'hui)")
@@ -273,12 +292,91 @@ def executer(client: Reperes, args: argparse.Namespace, parser: argparse.Argumen
         return client.contrats()
     if c == "schema":
         return client.schema(args.contrat)
+    if c == "outils":
+        return client.outils_mcp()
+    if c == "outil":
+        brut = sys.stdin.read() if args.arguments == "-" else args.arguments
+        try:
+            arguments = json.loads(brut or "{}")
+        except ValueError:
+            raise ErreurConfiguration("Arguments : JSON invalide.") from None
+        if not isinstance(arguments, dict):
+            raise ErreurConfiguration("Arguments : objet JSON attendu.")
+        return executer_par_api(client, args.nom, arguments)
     return client.openapi()
+
+
+def agent(args: argparse.Namespace, parser: argparse.ArgumentParser) -> int:
+    """`reperes agent` : un kit en conversation, ou un tour par appel (pilotage par un autre agent)."""
+    from .agent import AppelTrace
+    from .connexion import ConnexionAPI, ConnexionCLI
+    from .kits import KITS, creer_agent
+    from .modeles import ModeleChat
+
+    if args.liste or not args.kit:
+        for k in KITS.values():
+            print(f"{k.nom:13} {k.titre} : {k.description}")
+        return 0
+    if args.kit not in KITS:
+        parser.error(f"kit inconnu : {args.kit} ({', '.join(KITS)})")
+
+    def tracer(t: AppelTrace) -> None:
+        etat = f"erreur : {t.erreur}" if t.erreur else "ok"
+        print(f"  · {t.nom} {json.dumps(t.arguments, ensure_ascii=False)[:300]} → {etat}", file=sys.stderr)
+
+    messages = None
+    if args.session and os.path.exists(args.session):
+        try:
+            with open(args.session, encoding="utf-8") as f:
+                session = json.load(f)
+        except (OSError, ValueError):
+            raise ErreurConfiguration(f"Session illisible : {args.session}.") from None
+        if session.get("kit") != args.kit:
+            raise ErreurConfiguration(f"La session {args.session} appartient au kit {session.get('kit')}.")
+        messages = session.get("messages")
+    connexion = ConnexionCLI() if args.connexion == "cli" else ConnexionAPI(Reperes(base_url=args.base_url, timeout=args.timeout))
+    a = creer_agent(args.kit, connexion, ModeleChat(), trace=tracer if args.trace else None, messages=messages)
+
+    def tour(message: str) -> int:
+        r = a.repondre(message)
+        if args.session:
+            with open(args.session, "w", encoding="utf-8") as f:
+                json.dump({"kit": args.kit, **a.etat()}, f, ensure_ascii=False, indent=1)
+        if args.json:
+            print(json.dumps(r.vers_json(), ensure_ascii=False, indent=2 if args.pretty else None))
+        else:
+            print(r.texte)
+            if r.montants_non_sources:
+                print(f"\n[À vérifier : montants sans résultat d'outil correspondant : {', '.join(r.montants_non_sources)}]", file=sys.stderr)
+        return 0 if r.termine else 1
+
+    if args.message is not None:
+        message = (sys.stdin.read() if args.message == "-" else args.message).strip()
+        if not message:
+            parser.error("Message vide.")
+        return tour(message)
+    print(f"{KITS[args.kit].titre} (REPERES). Ligne vide pour quitter.\n", file=sys.stderr)
+    while True:
+        try:
+            message = input("> ").strip()
+        except EOFError:
+            break
+        if not message:
+            break
+        tour(message)
+        print()
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = analyseur()
     args = parser.parse_args(argv)
+    if args.commande == "agent":
+        try:
+            return agent(args, parser)
+        except ErreurReperes as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
     try:
         client = Reperes(base_url=args.base_url, timeout=args.timeout)
         resultat = executer(client, args, parser)
