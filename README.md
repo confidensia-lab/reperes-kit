@@ -56,7 +56,7 @@ avec `operation_id` (à communiquer au support) et, quand l'opération dépasse 
 | `trajectoire(demande)` | `POST /api/v1/calcul/trajectoire` | `calcul.trajectoire.v1` |
 | `esat(demande)` | `POST /api/v1/calcul/esat` | `calcul.esat.v1` |
 | `autonomie(scenario)` | `POST /api/v1/calcul/autonomie` | `calcul.autonomie.v1` |
-| `source(id, contenu=False)`, `contrats()`, `schema(nom)`, `openapi()` | publics | |
+| `source(id, contenu=False)`, `contrats()`, `schema(nom)`, `openapi()`, `outils_mcp()` | publics | |
 
 Une simulation non couverte (emploi inconnu, date hors période) rend son résultat avec
 `statut: "erreur"` et `statut_http == 422`. Les autres échecs lèvent une erreur typée, sans jamais la
@@ -98,6 +98,49 @@ et le code d'erreur de l'API. Codes de sortie : 0 succès, y compris un statut m
 contexte vide) ; 1 erreur HTTP ou réseau, clé absente, ou livraison dégradée (recherche
 indisponible, statut d'erreur) ; 2 arguments invalides. Options communes : `--base-url` (sinon
 `REPERES_API_URL`), `--timeout` (180 secondes).
+
+## Kits : calcul hors ligne
+
+Les kits sont des calculateurs Python des contrats de REPERES, rejouables sans réseau sur un
+instantané daté des valeurs d'Étalon. Ils reproduisent au centime le moteur REPERES : mêmes lignes,
+mêmes montants, mêmes statuts, mêmes sources. Chaque version le vérifie sur les cas de référence du
+dépôt (`tests/cas/`), comparés à la sortie complète du moteur.
+
+| Kit | Contrat | Cas de référence |
+|---|---|---|
+| `reperes.kits.autonomie` | `calcul.autonomie.v1` (APA à domicile) | 18 |
+| `reperes.kits.esat` | `calcul.esat.v1` (rémunération garantie en ESAT) | 12 |
+
+```python
+from reperes import Reperes
+from reperes.kits import autonomie
+from reperes.kits.valeurs import Instantane
+
+inst = Instantane.depuis_api(Reperes(), autonomie.PARAMETRES)   # une lecture par paramètre
+inst.sauver("apa-2026-11.json")
+
+inst = Instantane.charger("apa-2026-11.json")                   # hors ligne
+r = autonomie.calculer({
+    "periode": "2026-01",
+    "personne": {"gir": 2, "provenance": "notification"},
+    "plan": {"aide_humaine": {"heures": 30, "tarif": 25.5}, "taux_participation": 15, "provenance": "notification"},
+    "realise": {"heures_dans_plan": 28, "prix_horaire": 29, "provenance": "facture"},
+}, inst)
+print(r["financement"]["reste_avant_fiscalite"])
+```
+
+Un instantané passe par l'API : il porte la source de chaque valeur et sa date de lecture. Le résultat
+de production reste celui de l'API ; le kit sert à comprendre un calcul, à le rejouer avec une
+hypothèse modifiée, à l'intégrer dans un agent ou un outil hors ligne.
+
+## Exemples
+
+- [`exemples/agent_apa/`](exemples/agent_apa/) : agent conversationnel APA à domicile, avec des consignes
+  issues des fiches de terrain BMSE ; calcul hors ligne ou par l'API, doctrine et valeurs par REPERES.
+- [`exemples/contexte_minimal.py`](exemples/contexte_minimal.py) : le contexte sourcé d'une question,
+  pour votre modèle.
+- [`exemples/simulation_remuneration.py`](exemples/simulation_remuneration.py) : simulation CCN 66 par
+  l'API et rejeu avec une hypothèse modifiée.
 
 ## Documentation
 

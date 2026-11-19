@@ -113,6 +113,14 @@ class Client(unittest.TestCase):
             with self.assertRaises(ErreurConfiguration):
                 c.context("Question")
 
+    def test_outils_mcp_publics(self):
+        programmer((200, {"outils": [{"name": "reperes_autonomie", "inputSchema": {"type": "object"}, "droit": "context", "credits": 1}]}))
+        with mock.patch.dict(os.environ, {}, clear=True):
+            outils = Reperes(base_url=self.url).outils_mcp()
+        self.assertEqual(outils[0]["name"], "reperes_autonomie")
+        self.assertEqual(Gestionnaire.vues[0]["chemin"], "/api/v1/mcp/outils")
+        self.assertIsNone(Gestionnaire.vues[0]["auth"])
+
     def test_redirection_non_suivie_et_controles(self):
         programmer((302, None))
         with self.assertRaises(ErreurRequete):

@@ -181,6 +181,14 @@ class Reperes:
         r = self._t.appeler("GET", "/api/v1/schemas", authentifie=False)
         return list(r.corps) if isinstance(r.corps, list) else []
 
+    def outils_mcp(self) -> list[dict[str, Any]]:
+        """Outils du connecteur MCP : nom, description, schéma d'entrée, droit requis et coût en crédits.
+
+        Leurs descriptions et schémas d'entrée sont écrits pour des modèles : un agent peut les
+        reprendre tels quels comme outils."""
+        r = self._t.appeler("GET", "/api/v1/mcp/outils", authentifie=False)
+        return list(r.corps.get("outils") or []) if isinstance(r.corps, dict) else []
+
     def schema(self, contrat: str) -> Resultat:
         """Schéma JSON d'un contrat (`calcul.esat.v1`…)."""
         return self._get(f"/api/v1/schemas/{quote(_identifiant(contrat), safe='')}.json", authentifie=False)

@@ -6,7 +6,7 @@ rédigées. Documentation : https://reperes.bmse.fr/docs
 """
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from .client import URL_PAR_DEFAUT, Reperes, Resultat
 from .erreurs import (
