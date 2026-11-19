@@ -1,0 +1,42 @@
+{
+ "id": "01_part_minimale",
+ "description": "Temps plein, part de l'ESAT au minimum (5 % du SMIC), juillet 2026 : aide au poste maximale, rémunération au plancher.",
+ "entree": {
+  "date": "2026-07-15",
+  "part_esat": {
+   "pct_smic": "5"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "smic_mensuel": "1867.02",
+  "part_esat": {
+   "pct_smic": "5.00",
+   "mensuel": "93.35"
+  },
+  "aide_au_poste": {
+   "pct_smic": "50.70",
+   "mensuel": "946.58"
+  },
+  "remuneration_garantie": {
+   "pct_smic": "55.70",
+   "mensuel": "1039.93"
+  },
+  "bornes": {
+   "minimum": "1039.93",
+   "maximum": "2066.79"
+  },
+  "interessement_plafond_annuel": "560.10",
+  "cotisations": {
+   "net_travailleur": "832.14",
+   "cotisations_esat": "386.65",
+   "compensation_etat": "351.18",
+   "cout_esat": "128.82",
+   "financement_etat": "1297.76"
+  },
+  "controles": {
+   "part_minimale": "ok",
+   "bornes": "ok"
+  }
+ }
+}

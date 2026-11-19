@@ -1,0 +1,43 @@
+{
+ "id": "rejeu_2025",
+ "description": "Même scénario lu au 15 janvier 2025 : le plafond du GIR 3 change, pas la facture.",
+ "entree": {
+  "date": "2025-01-15",
+  "periode": "2025-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "26"
+   },
+   "provenance": "notification",
+   "taux_participation": "20"
+  },
+  "realise": {
+   "heures_dans_plan": "20",
+   "heures_hors_plan": "2",
+   "prix_horaire": "31",
+   "provenance": "facture"
+  },
+  "besoin": {
+   "heures_estimees": "30",
+   "provenance": "declaration"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "reste_avant_fiscalite": "266.00",
+   "apa_estimee": "416.00"
+  },
+  "plafond": {
+   "plafond": "1195.67"
+  }
+ }
+}

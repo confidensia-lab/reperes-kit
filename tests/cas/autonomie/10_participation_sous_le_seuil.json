@@ -1,0 +1,45 @@
+{
+ "id": "participation_sous_le_seuil",
+ "description": "Ressources de 900 € (au plus 0,725 MTP) : participation nulle.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "26"
+   },
+   "provenance": "notification"
+  },
+  "realise": {
+   "heures_dans_plan": "20",
+   "heures_hors_plan": "0",
+   "prix_horaire": "26",
+   "provenance": "facture"
+  },
+  "besoin": {
+   "heures_estimees": "30",
+   "provenance": "declaration"
+  },
+  "ressources": {
+   "mensuelles": "900",
+   "provenance": "hypothese"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "taux_participation": "0",
+   "participation": "0.00",
+   "apa_estimee": "520.00",
+   "reste_avant_fiscalite": "0.00"
+  }
+ }
+}

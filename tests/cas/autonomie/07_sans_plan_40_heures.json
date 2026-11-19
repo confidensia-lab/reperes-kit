@@ -1,0 +1,36 @@
+{
+ "id": "sans_plan_40_heures",
+ "description": "40 h envisagées à 30 €/h, sans plan : coût brut seulement, plafond du GIR 3 présenté à part.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "realise": {
+   "heures_dans_plan": "40",
+   "prix_horaire": "30",
+   "provenance": "hypothese"
+  }
+ },
+ "attendu": {
+  "statut": "partiel",
+  "financement": {
+   "plan_accepte": null,
+   "facture_brute": "1200.00",
+   "hors_plan": "1200.00",
+   "apa_estimee": null,
+   "reste_avant_fiscalite": null
+  },
+  "plafond": {
+   "plafond": "1215.99"
+  },
+  "premier_manque": "plan",
+  "sans_manque": [
+   "taux_participation"
+  ]
+ }
+}

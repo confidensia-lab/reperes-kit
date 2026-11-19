@@ -1,0 +1,42 @@
+{
+ "id": "07_sous_minimum",
+ "description": "Part de 3 % : sous le minimum de 5 %, signalé.",
+ "entree": {
+  "date": "2026-07-15",
+  "part_esat": {
+   "pct_smic": "3"
+  }
+ },
+ "attendu": {
+  "statut": "partiel",
+  "smic_mensuel": "1867.02",
+  "part_esat": {
+   "pct_smic": "3.00",
+   "mensuel": "56.01"
+  },
+  "aide_au_poste": {
+   "pct_smic": "50.70",
+   "mensuel": "946.58"
+  },
+  "remuneration_garantie": {
+   "pct_smic": "53.70",
+   "mensuel": "1002.59"
+  },
+  "bornes": {
+   "minimum": "1039.93",
+   "maximum": "2066.79"
+  },
+  "interessement_plafond_annuel": "336.06",
+  "cotisations": {
+   "net_travailleur": "802.27",
+   "cotisations_esat": "372.46",
+   "compensation_etat": "351.18",
+   "cout_esat": "77.29",
+   "financement_etat": "1297.76"
+  },
+  "controles": {
+   "part_minimale": "non",
+   "bornes": "non"
+  }
+ }
+}

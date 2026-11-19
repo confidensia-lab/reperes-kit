@@ -1,0 +1,34 @@
+{
+  "schema_version": "calcul.autonomie.v1",
+  "statut": "erreur",
+  "message": "taux de participation : 90 % au plus (CASF R. 232-11)",
+  "date": "2026-01-15",
+  "controles": [],
+  "plafond": [],
+  "participation": [],
+  "mois": [],
+  "financement": {
+    "plan_accepte": null,
+    "facture_brute": null,
+    "base_utilisee": null,
+    "taux_participation": null,
+    "participation": null,
+    "apa_estimee": null,
+    "depassement": null,
+    "hors_plan": null,
+    "reste_avant_fiscalite": null,
+    "credit_impot_potentiel": null,
+    "cout_net_fiscal_potentiel": null
+  },
+  "heures": {
+    "besoin_estime": null,
+    "prevues": null,
+    "realisees_dans_plan": null,
+    "non_realisees": null,
+    "hors_plan": null
+  },
+  "indisponibles": [],
+  "informations_manquantes": [],
+  "signalements": [],
+  "valeurs": []
+}

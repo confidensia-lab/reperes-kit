@@ -1,0 +1,47 @@
+{
+ "id": "11_cotisations_couvertures",
+ "description": "Part de 35 %, juillet 2026, complémentaire santé (20 € ESAT, 20 € travailleur) et prévoyance (15 €) : net du travailleur, coût pour l'ESAT après compensation.",
+ "entree": {
+  "date": "2026-07-15",
+  "part_esat": {
+   "pct_smic": "35"
+  },
+  "couverture": {
+   "sante_esat": "20",
+   "sante_travailleur": "20",
+   "prevoyance_esat": "15"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "smic_mensuel": "1867.02",
+  "part_esat": {
+   "pct_smic": "35.00",
+   "mensuel": "653.46"
+  },
+  "aide_au_poste": {
+   "pct_smic": "43.20",
+   "mensuel": "806.55"
+  },
+  "remuneration_garantie": {
+   "pct_smic": "78.20",
+   "mensuel": "1460.01"
+  },
+  "bornes": {
+   "minimum": "1039.93",
+   "maximum": "2066.79"
+  },
+  "interessement_plafond_annuel": "3920.76",
+  "cotisations": {
+   "net_travailleur": "1144.90",
+   "cotisations_esat": "582.54",
+   "compensation_etat": "322.30",
+   "cout_esat": "913.70",
+   "financement_etat": "1128.85"
+  },
+  "controles": {
+   "part_minimale": "ok",
+   "bornes": "ok"
+  }
+ }
+}

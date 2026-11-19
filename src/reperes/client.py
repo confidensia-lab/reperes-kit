@@ -91,6 +91,11 @@ class Reperes:
             cle=cle, timeout=timeout, tentatives=tentatives, agent=f"reperes-python/{__version__}",
         )
 
+    @property
+    def base_url(self) -> str:
+        """Adresse de l'API utilisée par le client."""
+        return self._t.base
+
     # Contexte et réponses -------------------------------------------------------------------
 
     def context(self, question: str, *, exploration: bool = False) -> Resultat:

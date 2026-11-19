@@ -1,0 +1,45 @@
+{
+ "id": "fil_rouge_credit_impot",
+ "description": "Reste entièrement éligible, payé par la personne, sous plafond annuel disponible.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "26"
+   },
+   "provenance": "notification",
+   "taux_participation": "20"
+  },
+  "realise": {
+   "heures_dans_plan": "20",
+   "heures_hors_plan": "2",
+   "prix_horaire": "31",
+   "provenance": "facture"
+  },
+  "besoin": {
+   "heures_estimees": "30",
+   "provenance": "declaration"
+  },
+  "fiscal": {
+   "eligible": true,
+   "plafond_disponible": "12000"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "reste_avant_fiscalite": "266.00",
+   "credit_impot_potentiel": "133.00",
+   "cout_net_fiscal_potentiel": "133.00"
+  }
+ }
+}

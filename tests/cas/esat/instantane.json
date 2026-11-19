@@ -1,0 +1,2913 @@
+{
+ "lu_le": "2026-11-17",
+ "schema_version": "etalon.instantane.v1",
+ "valeurs": {
+  "agirc_arrco.ceg": [
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "une contribution d’équilibre général, aux taux de : x 2,15 % sur la tranche 1",
+    "source": {
+     "reference": "ANI 17/11/2017 Agirc-Arrco",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 instituant le régime Agirc-Arrco, applicable au 1er janvier 2019 (articles 35 à 38)",
+     "url": "https://www.agirc-arrco.fr/storage/2024/09/201809dc_ANI_du_17_novembre_2017.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.15",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "2,70 % sur la tranche 2 des revenus définie à l’article 32.",
+    "source": {
+     "reference": "ANI 17/11/2017 Agirc-Arrco",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 instituant le régime Agirc-Arrco, applicable au 1er janvier 2019 (articles 35 à 38)",
+     "url": "https://www.agirc-arrco.fr/storage/2024/09/201809dc_ANI_du_17_novembre_2017.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.7",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "agirc_arrco.cet": [
+   {
+    "passage": "Pour les participants dont la rémunération excède le plafond fixé en application de l’article L. 241-3 du code de la sécurité sociale, une contribution d’équilibre technique de 0,35 % applicable sur les tranches 1 et 2 des revenus définies à l’article 32.",
+    "source": {
+     "reference": "ANI 17/11/2017 Agirc-Arrco",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 instituant le régime Agirc-Arrco, applicable au 1er janvier 2019 (articles 35 à 38)",
+     "url": "https://www.agirc-arrco.fr/storage/2024/09/201809dc_ANI_du_17_novembre_2017.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.35",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "agirc_arrco.repartition": [
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Les cotisations dues au présent régime, tant au titre de la tranche 1 que de la tranche 2, sont prises en charge par l’employeur à hauteur de 60 % et par le salarié à hauteur de 40 %.",
+    "source": {
+     "reference": "ANI 17/11/2017 Agirc-Arrco",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 instituant le régime Agirc-Arrco, applicable au 1er janvier 2019 (articles 35 à 38)",
+     "url": "https://www.agirc-arrco.fr/storage/2024/09/201809dc_ANI_du_17_novembre_2017.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "60",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Les cotisations dues au présent régime, tant au titre de la tranche 1 que de la tranche 2, sont prises en charge par l’employeur à hauteur de 60 % et par le salarié à hauteur de 40 %.",
+    "source": {
+     "reference": "ANI 17/11/2017 Agirc-Arrco",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 instituant le régime Agirc-Arrco, applicable au 1er janvier 2019 (articles 35 à 38)",
+     "url": "https://www.agirc-arrco.fr/storage/2024/09/201809dc_ANI_du_17_novembre_2017.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "40",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "agirc_arrco.taux_appele_part": [
+   {
+    "coordonnees": {
+     "part": "employeur",
+     "tranche": "t1"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.72",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "employeur",
+     "tranche": "t2"
+    },
+    "territoire": "nat_FR",
+    "valeur": "12.95",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie",
+     "tranche": "t1"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.15",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie",
+     "tranche": "t2"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.64",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "atmp.taux_collectif": [
+   {
+    "coordonnees": {
+     "code_risque": "00.00B"
+    },
+    "passage": "Salariés occupant des fonctions supports de nature administrative dans des entreprises relevant de branches professionnelles autres que celle du BTP. 00.00B 0,70 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.7",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "00.00B"
+    },
+    "passage": "Salariés occupant des fonctions supports de nature administrative dans des entreprises relevant de branches professionnelles autres que celle du BTP. 00.00B 0,64 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.64",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "75.1CD"
+    },
+    "passage": "Accueil à domicile à titre onéreux, d'enfants, de personnes âgées ou d'adultes handicapés confiés par des organismes publics, des œuvres, des établissements ou des services de soins. 75.1CD 1,70 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.7",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "75.1CD"
+    },
+    "passage": "Accueil à domicile à titre onéreux, d'enfants, de personnes âgées ou d'adultes handicapés confiés par des organismes publics, des œuvres, des établissements ou des services de soins. 75.1CD 1,64 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.64",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "80.1ZA"
+    },
+    "passage": "Personnel enseignant et administratif des établissements d'enseignement privés et des organismes de formation. 80.1ZA 1,23 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.23",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "80.1ZA"
+    },
+    "passage": "Personnel enseignant et administratif des établissements d'enseignement privés et des organismes de formation. 80.1ZA 1,25 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.25",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1AC"
+    },
+    "passage": "Services de soins privés médicaux exclusivement à domicile. 85.1AC 2,30 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.3",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1AC"
+    },
+    "passage": "Services de soins privés médicaux exclusivement à domicile. 85.1AC 2,25 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.25",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1AD"
+    },
+    "passage": "Etablissements de soins privés y compris les centres de réadaptation fonctionnelle, autres instituts pour la santé (établissements thermaux, etc.). 85.1AD 2,30 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.3",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1AD"
+    },
+    "passage": "Etablissements de soins privés y compris les centres de réadaptation fonctionnelle, autres instituts pour la santé (établissements thermaux, etc.). 85.1AD 2,25 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.25",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1CB"
+    },
+    "passage": "Médecine systématique et de dépistage (y compris les centres interentreprises de médecine du travail). 85.1CB 1,05 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.05",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1CB"
+    },
+    "passage": "Médecine systématique et de dépistage (y compris les centres interentreprises de médecine du travail). 85.1CB 1,06 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.06",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1CD"
+    },
+    "passage": "Cabinets de soins : médicaux et dentaires. 85.1CD 1,16 %",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.16",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.1CD"
+    },
+    "passage": "Cabinets de soins : médicaux et dentaires. 85.1CD 1,19 %",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.19",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AB"
+    },
+    "passage": "Services d'aide sociale à domicile (auxiliaires de vie, aides ménagères…). 85.3AB 3,75 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.75",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AB"
+    },
+    "passage": "Services d'aide sociale à domicile (auxiliaires de vie, aides ménagères…). 85.3AB 3,71 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.71",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AC"
+    },
+    "passage": "Accueil, hébergement en établissement pour personnes âgées (maisons de retraite…). 85.3AC 3,75 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.75",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AC"
+    },
+    "passage": "Accueil, hébergement en établissement pour personnes âgées (maisons de retraite…). 85.3AC 3,71 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.71",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AD"
+    },
+    "passage": "Accueil, hébergement en établissement pour personnes handicapées (enfants et adultes). 85.3AD 3,75 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.75",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AD"
+    },
+    "passage": "Accueil, hébergement en établissement pour personnes handicapées (enfants et adultes). 85.3AD 3,71 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.71",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AE"
+    },
+    "passage": "Accueil, hébergement, prévention pour petite enfance, l'enfance, l'adolescence. (2) 85.3AE 3,75 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.75",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3AE"
+    },
+    "passage": "Accueil, hébergement, prévention pour petite enfance, l'enfance, l'adolescence. (2) 85.3AE 3,71 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.71",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3BA"
+    },
+    "passage": "Action sociale sous toutes ses formes hors risques 853AB/853AC/853AD/853AE. 85.3BA 3,75 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.75",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3BA"
+    },
+    "passage": "Action sociale sous toutes ses formes hors risques 853AB/853AC/853AD/853AE. 85.3BA 3,71 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.71",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3HA"
+    },
+    "passage": "Stagiaires des centres de formation professionnelle, de réadaptation fonctionnelle, de rééducation professionnelle. 85.3HA 2,12 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.12",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3HA"
+    },
+    "passage": "Stagiaires des centres de formation professionnelle, de réadaptation fonctionnelle, de rééducation professionnelle. 85.3HA 2,08 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.08",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3HB"
+    },
+    "passage": "Travailleurs handicapés des établissements ou services d'aide par le travail. 85.3HB 1,84 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.84",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3HB"
+    },
+    "passage": "Travailleurs handicapés des établissements ou services d'aide par le travail. 85.3HB 1,61 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.61",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3KL"
+    },
+    "passage": "Association intermédiaire (personnes dépourvues d'emploi et mises à disposition). 85.3KL 3,68 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.68",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "85.3KL"
+    },
+    "passage": "Association intermédiaire (personnes dépourvues d'emploi et mises à disposition). 85.3KL 3,56 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.56",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "91.3EJ"
+    },
+    "passage": "Activités des organisations consulaires et patronales, des organisations professionnelles, des syndicats de salariés, des organisations religieuses, des organisations politiques et des organisations associatives non classées ailleurs. 91.3EJ 1,21 % TC",
+    "source": {
+     "reference": "JORFTEXT000051533180",
+     "titre": "Arrêté du 29 avril 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2025, annexe 1 (taux nets collectifs applicables en 2025)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051533180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.21",
+    "valide_du": "2025-05-01"
+   },
+   {
+    "coordonnees": {
+     "code_risque": "91.3EJ"
+    },
+    "passage": "Activités des organisations consulaires et patronales, des organisations professionnelles, des syndicats de salariés, des organisations religieuses, des organisations politiques et des organisations associatives non classées ailleurs. 91.3EJ 1,20 % TC",
+    "source": {
+     "reference": "JORFTEXT000053228984",
+     "titre": "Arrêté du 30 décembre 2025 relatif à la tarification des risques d'accidents du travail et de maladies professionnelles pour l'année 2026, annexe 1 (taux nets collectifs applicables en 2026)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053228984"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.2",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "cotisation.ags": [
+   {
+    "passage": "Le taux de cotisation des entreprises, fixé par le Conseil d’Administration de l’AGS, responsable de l’équilibre financier du régime de garantie, est resté inchangé du 1er juillet 2017 au 31 décembre 2023 à 0,15%.",
+    "source": {
+     "reference": "AGS rapport annuel 2023",
+     "titre": "AGS, rapport annuel 2023, « Évolution du taux de cotisation »",
+     "url": "https://www.ags-garantie-salaires.org/sites/default/files/2025-09/Rapport-activite-AGS-2023.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.15",
+    "valide_du": "2017-07-01"
+   },
+   {
+    "passage": "En 2024, le taux de cotisation a été successivement relevé au 1er janvier à 0,20 % et au 1er juillet à 0,25 % par décisions du Conseil d’administration afin de préserver l’équilibre financier du régime.",
+    "source": {
+     "reference": "AGS rapport d'activité 2024",
+     "titre": "AGS, rapport d'activité 2024, « Cotisations »",
+     "url": "https://www.ags-garantie-salaires.org/sites/default/files/2025-09/AGS-RA2024-280x210%20V10-WEB.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.2",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "passage": "En 2024, le taux de cotisation a été successivement relevé au 1er janvier à 0,20 % et au 1er juillet à 0,25 % par décisions du Conseil d’administration afin de préserver l’équilibre financier du régime.",
+    "source": {
+     "reference": "AGS rapport d'activité 2024",
+     "titre": "AGS, rapport d'activité 2024, « Cotisations »",
+     "url": "https://www.ags-garantie-salaires.org/sites/default/files/2025-09/AGS-RA2024-280x210%20V10-WEB.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.25",
+    "valide_du": "2024-07-01"
+   },
+   {
+    "passage": "Le taux de cotisation est fixé chaque année par le Conseil d’administration de l’AGS et reste à 0,25 % de la masse salariale en 2026.",
+    "source": {
+     "reference": "AGS communiqué maintien du taux 2026",
+     "titre": "AGS, communiqué « Maintien des taux de cotisation de l'AGS » (taux 2026)",
+     "url": "https://www.ags-garantie-salaires.org/a-la-une/communiques-de-presse/maintien-du-taux-de-cotisations-AGS"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.25",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "cotisation.allocations_familiales": [
+   {
+    "passage": "Le taux des cotisations d'allocations familiales prévues aux 1°, 2° et 3° de l'article L. 241-6 est fixé à 5,25 %",
+    "source": {
+     "reference": "LEGIARTI000036475197",
+     "titre": "Code de la sécurité sociale, article D241-3-1, version du 2018-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036475197"
+    },
+    "territoire": "nat_FR",
+    "valeur": "5.25",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "passage": "Le taux des cotisations d'allocations familiales prévues aux 1°, 2° et 3° de l'article L. 241-6 est fixé à 5,25 %",
+    "source": {
+     "reference": "LEGIARTI000052196883",
+     "titre": "Code de la sécurité sociale, article D241-3-1, version du 2026-01-01 (décret n° 2025-887)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052196883"
+    },
+    "territoire": "nat_FR",
+    "valeur": "5.25",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "cotisation.apec": [
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Taux global Part patronale Part salariale 0,06 % 0,036 % 0,024 %",
+    "source": {
+     "reference": "Circulaire Agirc-Arrco 2025-16-SG-DRJ",
+     "titre": "Circulaire Agirc-Arrco 2025-16-SG-DRJ, paramètres 2026 (cotisation APEC recouvrée par les institutions Agirc-Arrco)",
+     "url": "https://www.agirc-arrco.fr/storage/CirculaireAgircArrco2025-16sg-drj.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.036",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Taux global Part patronale Part salariale 0,06 % 0,036 % 0,024 %",
+    "source": {
+     "reference": "Circulaire Agirc-Arrco 2025-16-SG-DRJ",
+     "titre": "Circulaire Agirc-Arrco 2025-16-SG-DRJ, paramètres 2026 (cotisation APEC recouvrée par les institutions Agirc-Arrco)",
+     "url": "https://www.agirc-arrco.fr/storage/CirculaireAgircArrco2025-16sg-drj.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.024",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "cotisation.chomage": [
+   {
+    "passage": "Sous réserve des dispositions de la sous-section 2 de la présente section, le taux de la contribution à la charge des employeurs est fixé à 4,05 %.",
+    "source": {
+     "reference": "JORFTEXT000038829574",
+     "titre": "Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage, annexe A (règlement d'assurance chômage), article 50",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038829574"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.05",
+    "valide_du": "2019-11-01"
+   },
+   {
+    "passage": "§ 1er - Sous réserve des dispositions prévues aux articles 50-2 à 51, le taux de la contribution à la charge des employeurs est fixé à 4%.",
+    "source": {
+     "reference": "Règlement général UNEDIC 2024, art. 50-1",
+     "titre": "Règlement général annexé à la convention du 15 novembre 2024 relative à l'assurance chômage (agréée par arrêté du 19 décembre 2024, JORF du 20 décembre 2024), article 50-1",
+     "url": "https://unedic.org/ged/documents/regulatory_texts/pdf/TXT-RG-Reglement_general_annexe_a_la_convention.pdf"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4",
+    "valide_du": "2025-05-01"
+   }
+  ],
+  "cotisation.csa": [
+   {
+    "passage": "1° Une contribution au taux de 0,3 % due par les employeurs privés et publics.",
+    "source": {
+     "reference": "LEGIARTI000038836971",
+     "titre": "Code de l'action sociale et des familles, article L14-10-4, version du 2019-10-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038836971"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3",
+    "valide_du": "2019-10-01"
+   },
+   {
+    "passage": "Est instituée une contribution de solidarité pour l'autonomie au taux de 0,3 %, due par les employeurs privés et publics.",
+    "source": {
+     "reference": "LEGIARTI000042675240",
+     "titre": "Code de la sécurité sociale, article L137-40, version du 2021-01-01 (loi n° 2020-1576)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042675240"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3",
+    "valide_du": "2021-01-01"
+   }
+  ],
+  "cotisation.fnal": [
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "2° Pour les autres employeurs, par application d'un taux de 0,5 % sur les revenus d'activité tels qu'ils sont pris en compte pour la détermination de l'assiette des cotisations patronales d'assurance maladie affectées au financement des régimes de base de l'assurance maladie.",
+    "source": {
+     "reference": "LEGIARTI000038839912",
+     "titre": "Code de la construction et de l'habitation, article L813-5, version du 2020-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038839912"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.5",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "1° Par application d'un taux de 0,1 % sur la part des revenus d'activité tels qu'ils sont pris en compte pour la détermination de l'assiette des cotisations patronales d'assurance maladie affectées au financement des régimes de base de l'assurance maladie et perçus par les assurés dans la limite du plafond mentionné au premier alinéa de l'article L. 241-3 du code de la sécurité sociale , pour les employeurs occupant moins de cinquante salariés",
+    "source": {
+     "reference": "LEGIARTI000038839912",
+     "titre": "Code de la construction et de l'habitation, article L813-5, version du 2020-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038839912"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.1",
+    "valide_du": "2020-01-01"
+   }
+  ],
+  "cotisation.forfait_social": [
+   {
+    "coordonnees": {
+     "taux": "plein"
+    },
+    "passage": "Le taux de la contribution mentionnée à l'article L. 137-15 est fixé à 20 %",
+    "source": {
+     "reference": "LEGIARTI000038611100",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2019-10-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038611100"
+    },
+    "territoire": "nat_FR",
+    "valeur": "20",
+    "valide_du": "2019-10-01"
+   },
+   {
+    "coordonnees": {
+     "taux": "plein"
+    },
+    "passage": "Le taux de la contribution mentionnée à l'article L. 137-15 est fixé à 20 %",
+    "source": {
+     "reference": "LEGIARTI000042915221",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2020-12-31",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042915221"
+    },
+    "territoire": "nat_FR",
+    "valeur": "20",
+    "valide_du": "2020-12-31"
+   },
+   {
+    "coordonnees": {
+     "taux": "plein"
+    },
+    "passage": "Le taux de la contribution mentionnée à l'article L. 137-15 est fixé à 20 %",
+    "source": {
+     "reference": "LEGIARTI000044626637",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2022-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044626637"
+    },
+    "territoire": "nat_FR",
+    "valeur": "20",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "coordonnees": {
+     "taux": "prevoyance"
+    },
+    "passage": "Toutefois, ce taux est fixé à 8 % pour les contributions des employeurs destinées au financement des prestations complémentaires de prévoyance",
+    "source": {
+     "reference": "LEGIARTI000038611100",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2019-10-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038611100"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8",
+    "valide_du": "2019-10-01"
+   },
+   {
+    "coordonnees": {
+     "taux": "prevoyance"
+    },
+    "passage": "Toutefois, ce taux est fixé à 8 % pour les contributions des employeurs destinées au financement des prestations complémentaires de prévoyance",
+    "source": {
+     "reference": "LEGIARTI000042915221",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2020-12-31",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042915221"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8",
+    "valide_du": "2020-12-31"
+   },
+   {
+    "coordonnees": {
+     "taux": "prevoyance"
+    },
+    "passage": "Toutefois, ce taux est fixé à 8 % pour les contributions des employeurs destinées au financement des prestations complémentaires de prévoyance",
+    "source": {
+     "reference": "LEGIARTI000044626637",
+     "titre": "Code de la sécurité sociale, article L137-16, version du 2022-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044626637"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8",
+    "valide_du": "2022-01-01"
+   }
+  ],
+  "cotisation.formation_professionnelle": [
+   {
+    "coordonnees": {
+     "effectif": "11_et_plus"
+    },
+    "passage": "L'employeur d'au moins onze salariés s'acquitte de la contribution à la formation professionnelle mentionnée au 2° de l'article L. 6131-2 du présent code par le versement de 1 %",
+    "source": {
+     "reference": "LEGIARTI000038610044",
+     "titre": "Code du travail, article L6331-3, version du 2020-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038610044"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "11_et_plus"
+    },
+    "passage": "L'employeur d'au moins onze salariés s'acquitte de la contribution à la formation professionnelle mentionnée au 2° de l'article L. 6131-2 du présent code par le versement de 1 %",
+    "source": {
+     "reference": "LEGIARTI000044981918",
+     "titre": "Code du travail, article L6331-3, version du 2022-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044981918"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_11"
+    },
+    "passage": "L'employeur de moins de onze salariés s'acquitte de la contribution à la formation professionnelle mentionnée au 2° de l'article L. 6131-2 du présent code par le versement de 0,55 %",
+    "source": {
+     "reference": "LEGIARTI000037387044",
+     "titre": "Code du travail, article L6331-1, version du 2019-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037387044"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.55",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_11"
+    },
+    "passage": "L'employeur de moins de onze salariés s'acquitte de la contribution à la formation professionnelle mentionnée au 2° de l'article L. 6131-2 du présent code par le versement de 0,55 %",
+    "source": {
+     "reference": "LEGIARTI000044981927",
+     "titre": "Code du travail, article L6331-1, version du 2022-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044981927"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.55",
+    "valide_du": "2022-01-01"
+   }
+  ],
+  "cotisation.maladie": [
+   {
+    "passage": "Le taux de la cotisation des assurances sociales affectée aux risques maladie, maternité, invalidité et décès est fixé à 13 % à la charge de l'employeur, sur la totalité des rémunérations ou gains de l'intéressé.",
+    "source": {
+     "reference": "LEGIARTI000036679615",
+     "titre": "Code de la sécurité sociale, article D242-3, version du 2018-03-08",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036679615"
+    },
+    "territoire": "nat_FR",
+    "valeur": "13",
+    "valide_du": "2018-03-08"
+   }
+  ],
+  "cotisation.peec": [
+   {
+    "passage": "doivent consacrer des sommes représentant 0,45 % au moins des revenus d'activité versés par eux au cours de l'exercice écoulé",
+    "source": {
+     "reference": "LEGIARTI000038610274",
+     "titre": "Code de la construction et de l'habitation, article L313-1, version du 2020-01-01 (loi n° 2019-486)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038610274"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.45",
+    "valide_du": "2020-01-01"
+   }
+  ],
+  "cotisation.prevoyance_cadres": [
+   {
+    "passage": "une cotisation à leur charge exclusive, égale à 1,50 % de la tranche de rémunération inférieure au plafond fixé pour les cotisations de sécurité sociale",
+    "source": {
+     "reference": "KALIARTI000036732016",
+     "titre": "Accord national interprofessionnel du 17 novembre 2017 relatif à la prévoyance des cadres, article 1er",
+     "url": "https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000036732016"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.5",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "cotisation.taxe_apprentissage": [
+   {
+    "passage": "Son taux est fixé à 0,68 %.",
+    "source": {
+     "reference": "LEGIARTI000028448726",
+     "titre": "Code général des impôts, article 1599 ter B, version du 2014-01-01 (abrogé au 2022-01-01)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028448726"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.68",
+    "valide_du": "2014-01-01"
+   },
+   {
+    "passage": "Le taux de la taxe d'apprentissage est fixé à 0,68 %.",
+    "source": {
+     "reference": "LEGIARTI000044981935",
+     "titre": "Code du travail, article L6241-1-1, version du 2022-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044981935"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.68",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "passage": "Le taux de la taxe d'apprentissage est fixé à 0,68 %.",
+    "source": {
+     "reference": "LEGIARTI000051227941",
+     "titre": "Code du travail, article L6241-1-1, version du 2025-02-16",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051227941"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.68",
+    "valide_du": "2025-02-16"
+   }
+  ],
+  "cotisation.vieillesse_deplafonnee": [
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié Du 1er janvier au 31 décembre 2015 8,50 % 6,85 % 1,80 % 0,30 % Du 1er janvier au 31 décembre 2016 8,55 % 6,90 % 1,85 % 0,35 % A compter du 1er janvier 2017 8,55 % 6,90 % 1,90 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000029924557",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2015-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029924557"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.9",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1er janvier 2024 8,55 % 6,90 % 2,02 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000048852488",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2023-12-31 (décret n° 2023-1329)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048852488"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.02",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : Rémunérations versées SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1 er janvier 2026 8,55 % 6,9 % 2,11 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000053302465",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2026-01-01 (décret n° 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302465"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2.11",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié Du 1er janvier au 31 décembre 2015 8,50 % 6,85 % 1,80 % 0,30 % Du 1er janvier au 31 décembre 2016 8,55 % 6,90 % 1,85 % 0,35 % A compter du 1er janvier 2017 8,55 % 6,90 % 1,90 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000029924557",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2015-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029924557"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.4",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1er janvier 2024 8,55 % 6,90 % 2,02 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000048852488",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2023-12-31 (décret n° 2023-1329)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048852488"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.4",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : Rémunérations versées SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1 er janvier 2026 8,55 % 6,9 % 2,11 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000053302465",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2026-01-01 (décret n° 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302465"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.4",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "cotisation.vieillesse_plafonnee": [
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié Du 1er janvier au 31 décembre 2015 8,50 % 6,85 % 1,80 % 0,30 % Du 1er janvier au 31 décembre 2016 8,55 % 6,90 % 1,85 % 0,35 % A compter du 1er janvier 2017 8,55 % 6,90 % 1,90 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000029924557",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2015-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029924557"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.55",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1er janvier 2024 8,55 % 6,90 % 2,02 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000048852488",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2023-12-31 (décret n° 2023-1329)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048852488"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.55",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "employeur"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : Rémunérations versées SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1 er janvier 2026 8,55 % 6,9 % 2,11 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000053302465",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2026-01-01 (décret n° 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302465"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.55",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié Du 1er janvier au 31 décembre 2015 8,50 % 6,85 % 1,80 % 0,30 % Du 1er janvier au 31 décembre 2016 8,55 % 6,90 % 1,85 % 0,35 % A compter du 1er janvier 2017 8,55 % 6,90 % 1,90 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000029924557",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2015-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029924557"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.9",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : RÉMUNÉRATIONS VERSÉES SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1er janvier 2024 8,55 % 6,90 % 2,02 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000048852488",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2023-12-31 (décret n° 2023-1329)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048852488"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.9",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "part": "salarie"
+    },
+    "passage": "Le taux de la cotisation des assurances vieillesse et veuvage est fixé comme indiqué dans le tableau suivant : Rémunérations versées SUR LA PART de la rémunération dans la limite du plafond prévu au premier alinéa de l'article L. 241-3 SUR LA TOTALITÉ de la rémunération Employeur Salarié Employeur Salarié A compter du 1 er janvier 2026 8,55 % 6,9 % 2,11 % 0,40 %",
+    "source": {
+     "reference": "LEGIARTI000053302465",
+     "titre": "Code de la sécurité sociale, article D242-4, version du 2026-01-01 (décret n° 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302465"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.9",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "crds.taux": [
+   {
+    "passage": "Le taux des contributions instituées par les articles 14 à 17 est fixé à 0,5 %.",
+    "source": {
+     "reference": "LEGIARTI000041466982",
+     "titre": "Ordonnance n° 96-50 du 24 janvier 1996 relative au remboursement de la dette sociale, article 19, version du 2020-01-01",
+     "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000041466982"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.5",
+    "valide_du": "2020-01-01"
+   }
+  ],
+  "csg.abattement": [
+   {
+    "passage": "les revenus bruts suivants bénéficient d'une réduction représentative de frais professionnels fixée à 1,75 % pour leur montant inférieur à quatre fois la valeur du plafond mentionné à l'article L. 241-3",
+    "source": {
+     "reference": "LEGIARTI000037074485",
+     "titre": "Code de la sécurité sociale, article L136-2, version du 2018-09-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037074485"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.75",
+    "valide_du": "2018-09-01"
+   },
+   {
+    "passage": "les revenus bruts suivants bénéficient d'une réduction représentative de frais professionnels fixée à 1,75 % pour leur montant inférieur à quatre fois la valeur du plafond mentionné à l'article L. 241-3",
+    "source": {
+     "reference": "LEGIARTI000042683568",
+     "titre": "Code de la sécurité sociale, article L136-2, version du 2020-12-16",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042683568"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.75",
+    "valide_du": "2020-12-16"
+   }
+  ],
+  "csg.taux": [
+   {
+    "coordonnees": {
+     "nature": "deductible"
+    },
+    "passage": "I. – Pour la détermination des bases d'imposition à l'impôt sur le revenu, la contribution prévue à l'article L. 136-1 du code de la sécurité sociale au titre des revenus d'activité et de remplacement ou celle afférente aux revenus mentionnés au 3° du I de l'article L. 136-7 du code précité est, à hauteur de 6,8 points",
+    "source": {
+     "reference": "LEGIARTI000038836652",
+     "titre": "Code général des impôts, article 154 quinquies, version du 2019-10-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038836652"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.8",
+    "valide_du": "2019-10-01"
+   },
+   {
+    "coordonnees": {
+     "nature": "deductible"
+    },
+    "passage": "I. – Pour la détermination des bases d'imposition à l'impôt sur le revenu, la contribution prévue à l'article L. 136-1 du code de la sécurité sociale au titre des revenus d'activité et de remplacement ou celle afférente aux revenus mentionnés au 4° du I de l'article L. 136-7 du code précité est, à hauteur de 6,8 points",
+    "source": {
+     "reference": "LEGIARTI000047288608",
+     "titre": "Code général des impôts, article 154 quinquies, version du 2023-03-11",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047288608"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.8",
+    "valide_du": "2023-03-11"
+   },
+   {
+    "coordonnees": {
+     "nature": "deductible"
+    },
+    "passage": "I. – Pour la détermination des bases d'imposition à l'impôt sur le revenu, la contribution prévue à l'article L. 136-1 du code de la sécurité sociale au titre des revenus d'activité et de remplacement ou celle afférente aux revenus mentionnés au 4° du I de l'article L. 136-7 du code précité est, à hauteur de 6,8 points",
+    "source": {
+     "reference": "LEGIARTI000054336634",
+     "titre": "Code général des impôts, article 154 quinquies, version du 2026-06-27",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054336634"
+    },
+    "territoire": "nat_FR",
+    "valeur": "6.8",
+    "valide_du": "2026-06-27"
+   },
+   {
+    "coordonnees": {
+     "nature": "global"
+    },
+    "passage": "Le taux des contributions sociales est fixé : 1° A 9,2 % pour la contribution sociale mentionnée à l'article L. 136-1",
+    "source": {
+     "reference": "LEGIARTI000041398360",
+     "titre": "Code de la sécurité sociale, article L136-8, version du 2019-12-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041398360"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.2",
+    "valide_du": "2019-12-28"
+   },
+   {
+    "coordonnees": {
+     "nature": "global"
+    },
+    "passage": "Le taux des contributions sociales est fixé : 1° A 9,2 % pour la contribution sociale mentionnée à l'article L. 136-1",
+    "source": {
+     "reference": "LEGIARTI000042683546",
+     "titre": "Code de la sécurité sociale, article L136-8, version du 2020-12-16",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042683546"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.2",
+    "valide_du": "2020-12-16"
+   },
+   {
+    "coordonnees": {
+     "nature": "global"
+    },
+    "passage": "Le taux des contributions sociales est fixé : 1° A 9,2 % pour la contribution sociale mentionnée à l'article L. 136-1",
+    "source": {
+     "reference": "LEGIARTI000051287395",
+     "titre": "Code de la sécurité sociale, article L136-8, version du 2025-07-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051287395"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.2",
+    "valide_du": "2025-07-01"
+   },
+   {
+    "coordonnees": {
+     "nature": "global"
+    },
+    "passage": "Le taux des contributions sociales est fixé : 1° A 9,2 % pour la contribution sociale mentionnée à l'article L. 136-1",
+    "source": {
+     "reference": "LEGIARTI000053278668",
+     "titre": "Code de la sécurité sociale, article L136-8, version du 2025-12-31",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053278668"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.2",
+    "valide_du": "2025-12-31"
+   },
+   {
+    "coordonnees": {
+     "nature": "global"
+    },
+    "passage": "Le taux des contributions sociales est fixé : 1° A 9,2 % pour la contribution sociale mentionnée à l'article L. 136-1",
+    "source": {
+     "reference": "LEGIARTI000054336623",
+     "titre": "Code de la sécurité sociale, article L136-8, version du 2026-06-27",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054336623"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.2",
+    "valide_du": "2026-06-27"
+   }
+  ],
+  "esat.aide_au_poste.coefficient": [
+   {
+    "passage": "La rémunération garantie se compose d'une part financée par l'établissement ou le service d'aide par le travail, qui ne peut être inférieure à 5 % du salaire minimum de croissance, et d'une aide au poste qui ne peut être supérieure à 50,7 % de ce même salaire.",
+    "source": {
+     "reference": "LEGIARTI000036737681",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737681"
+    },
+    "territoire": "nat_FR",
+    "valeur": "50.7",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "passage": "La rémunération garantie se compose d'une part financée par l'établissement ou le service d'accompagnement par le travail, qui ne peut être inférieure à 5 % du salaire minimum de croissance, et d'une aide au poste qui ne peut être supérieure à 50,7 % de ce même salaire.",
+    "source": {
+     "reference": "LEGIARTI000052140887",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140887"
+    },
+    "territoire": "nat_FR",
+    "valeur": "50.7",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "esat.aide_au_poste.reduction": [
+   {
+    "passage": "le pourcentage de 50,7 % mentionné à l'alinéa précédent est ensuite réduit de 0,5 % pour chaque hausse de 1 % de la part de la rémunération financée par l'établissement ou le service précités",
+    "source": {
+     "reference": "LEGIARTI000036737681",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737681"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.5",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "passage": "le pourcentage de 50,7 % mentionné à l'alinéa précédent est ensuite réduit de 0,5 % pour chaque hausse de 1 % de la part de la rémunération financée par l'établissement ou le service précités",
+    "source": {
+     "reference": "LEGIARTI000052140887",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140887"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.5",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "esat.aide_au_poste.seuil": [
+   {
+    "passage": "Lorsque la part de la rémunération garantie qui est financée par l'établissement ou le service d'aide par le travail dépasse le seuil de 20 % du salaire minimum de croissance",
+    "source": {
+     "reference": "LEGIARTI000036737681",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737681"
+    },
+    "territoire": "nat_FR",
+    "valeur": "20",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "passage": "Lorsque la part de la rémunération garantie qui est financée par l'établissement ou le service d'accompagnement par le travail dépasse le seuil de 20 % du salaire minimum de croissance",
+    "source": {
+     "reference": "LEGIARTI000052140887",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140887"
+    },
+    "territoire": "nat_FR",
+    "valeur": "20",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "esat.complementaire_sante.compensation": [
+   {
+    "passage": "est égale, pour chaque établissement ou service d'accompagnement par le travail, à la moitié des cotisations dues au titre de la couverture collective à adhésion obligatoire",
+    "source": {
+     "reference": "JORFTEXT000052138215",
+     "titre": "Arrêté du 25 août 2025 fixant la base et les états justificatifs de la compensation par l'Etat des cotisations payées par les établissements et services d'accompagnement par le travail (complémentaire santé)",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052138215"
+    },
+    "territoire": "nat_FR",
+    "valeur": "50",
+    "valide_du": "2025-01-01"
+   }
+  ],
+  "esat.formation.assiette_aide": [
+   {
+    "passage": "de la moitié de l'aide au poste financée par l'Etat",
+    "source": {
+     "reference": "JORFTEXT000037884349",
+     "titre": "Décret n° 2018-1346 du 28 décembre 2018 relatif au taux et à l'assiette de la contribution versée par les établissements et services d'aide par le travail pour le financement du compte personnel de formation des travailleurs handicapés",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037884349"
+    },
+    "territoire": "nat_FR",
+    "valeur": "50",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "esat.formation.taux": [
+   {
+    "passage": "est égale à 0,20% de l'assiette égale à la somme",
+    "source": {
+     "reference": "JORFTEXT000037884349",
+     "titre": "Décret n° 2018-1346 du 28 décembre 2018 relatif au taux et à l'assiette de la contribution versée par les établissements et services d'aide par le travail pour le financement du compte personnel de formation des travailleurs handicapés",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037884349"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.2",
+    "valide_du": "2019-01-01"
+   }
+  ],
+  "esat.interessement.plafond": [
+   {
+    "passage": "le montant de la prime versée à ce titre à chacun de ceux-ci est limité à un plafond égal à 10 % du montant total annuel de la part de rémunération garantie directement financée par l'établissement ou le service d'aide par le travail",
+    "source": {
+     "reference": "LEGIARTI000036737681",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737681"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10",
+    "valide_au": "2025-08-28",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "passage": "le montant de la prime versée à ce titre à chacun de ceux-ci est limité à un plafond égal à 50 % du montant total annuel de la part de rémunération garantie directement financée par l'établissement ou le service d'accompagnement par le travail",
+    "source": {
+     "reference": "LEGIARTI000052140887",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140887"
+    },
+    "territoire": "nat_FR",
+    "valeur": "50",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "esat.part_esat.minimum": [
+   {
+    "passage": "La rémunération garantie se compose d'une part financée par l'établissement ou le service d'aide par le travail, qui ne peut être inférieure à 5 % du salaire minimum de croissance",
+    "source": {
+     "reference": "LEGIARTI000036737681",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737681"
+    },
+    "territoire": "nat_FR",
+    "valeur": "5",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "passage": "La rémunération garantie se compose d'une part financée par l'établissement ou le service d'accompagnement par le travail, qui ne peut être inférieure à 5 % du salaire minimum de croissance",
+    "source": {
+     "reference": "LEGIARTI000052140887",
+     "titre": "Code de l’action sociale et des familles, article R243-6, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140887"
+    },
+    "territoire": "nat_FR",
+    "valeur": "5",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "esat.prevoyance.compensation": [
+   {
+    "passage": "est égale à un montant correspondant à 2 % de la part de leur rémunération garantie financée par l'établissement ou le service d'aide par le travail",
+    "source": {
+     "reference": "JORFTEXT000000276565",
+     "titre": "Arrêté du 14 mai 2007 fixant le montant de la compensation par l'Etat des cotisations payées par les établissements et services d'aide par le travail pour l'affiliation de travailleurs handicapés à un régime de prévoyance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000276565"
+    },
+    "territoire": "nat_FR",
+    "valeur": "2",
+    "valide_du": "2007-01-01"
+   }
+  ],
+  "esat.remuneration_garantie.coefficient": [
+   {
+    "coordonnees": {
+     "borne": "maximum"
+    },
+    "passage": "Dès la conclusion du contrat de soutien et d'aide par le travail mentionné à l'article L. 311-4 , les travailleurs handicapés admis dans un établissement ou un service d'aide par le travail et qui exercent une activité à caractère professionnel à temps plein perçoivent une rémunération garantie dont le montant est compris entre 55,7 % et 110,7 % du salaire minimum de croissance.",
+    "source": {
+     "reference": "LEGIARTI000036737674",
+     "titre": "Code de l’action sociale et des familles, article R243-5, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737674"
+    },
+    "territoire": "nat_FR",
+    "valeur": "110.7",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "coordonnees": {
+     "borne": "maximum"
+    },
+    "passage": "Dès la conclusion du contrat d'accompagnement par le travail mentionné à l'article L. 311-4 , les travailleurs handicapés admis dans un établissement ou un service d'aide par le travail et qui exercent une activité à caractère professionnel à temps plein perçoivent une rémunération garantie dont le montant est compris entre 55,7 % et 110,7 % du salaire minimum de croissance.",
+    "source": {
+     "reference": "LEGIARTI000052140908",
+     "titre": "Code de l’action sociale et des familles, article R243-5, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140908"
+    },
+    "territoire": "nat_FR",
+    "valeur": "110.7",
+    "valide_du": "2025-08-28"
+   },
+   {
+    "coordonnees": {
+     "borne": "minimum"
+    },
+    "passage": "Dès la conclusion du contrat de soutien et d'aide par le travail mentionné à l'article L. 311-4 , les travailleurs handicapés admis dans un établissement ou un service d'aide par le travail et qui exercent une activité à caractère professionnel à temps plein perçoivent une rémunération garantie dont le montant est compris entre 55,7 % et 110,7 % du salaire minimum de croissance.",
+    "source": {
+     "reference": "LEGIARTI000036737674",
+     "titre": "Code de l’action sociale et des familles, article R243-5, version du 2018-03-24",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036737674"
+    },
+    "territoire": "nat_FR",
+    "valeur": "55.7",
+    "valide_du": "2018-03-24"
+   },
+   {
+    "coordonnees": {
+     "borne": "minimum"
+    },
+    "passage": "Dès la conclusion du contrat d'accompagnement par le travail mentionné à l'article L. 311-4 , les travailleurs handicapés admis dans un établissement ou un service d'aide par le travail et qui exercent une activité à caractère professionnel à temps plein perçoivent une rémunération garantie dont le montant est compris entre 55,7 % et 110,7 % du salaire minimum de croissance.",
+    "source": {
+     "reference": "LEGIARTI000052140908",
+     "titre": "Code de l’action sociale et des familles, article R243-5, version du 2025-08-28",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052140908"
+    },
+    "territoire": "nat_FR",
+    "valeur": "55.7",
+    "valide_du": "2025-08-28"
+   }
+  ],
+  "minimum_garanti": [
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est porté à 3,65 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000039638018",
+     "titre": "Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000039638018"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.65",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 3,65 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000042677359",
+     "titre": "Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042677359"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.65",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 3,73 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000044126026",
+     "titre": "Arrêté du 27 septembre 2021 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044126026"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.73",
+    "valide_du": "2021-10-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 3,76 euros en métropole",
+    "source": {
+     "reference": "JORFTEXT000044546647",
+     "titre": "Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044546647"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.76",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 3,86 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000045602317",
+     "titre": "Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045602317"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.86",
+    "valide_du": "2022-05-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 3,94 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000046113517",
+     "titre": "Arrêté du 29 juillet 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046113517"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3.94",
+    "valide_du": "2022-08-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,01 euros en métropole",
+    "source": {
+     "reference": "JORFTEXT000046780043",
+     "titre": "Décret n° 2022-1608 du 22 décembre 2022 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046780043"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.01",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,10 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000047495817",
+     "titre": "Arrêté du 26 avril 2023 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047495817"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.1",
+    "valide_du": "2023-05-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,15 euros en métropole",
+    "source": {
+     "reference": "JORFTEXT000048604676",
+     "titre": "Décret n° 2023-1216 du 20 décembre 2023 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048604676"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.15",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,22 euros en métropole",
+    "source": {
+     "reference": "JORFTEXT000050392683",
+     "titre": "Décret n° 2024-951 du 23 octobre 2024 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050392683"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.22",
+    "valide_du": "2024-11-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,25 euros en métropole",
+    "source": {
+     "reference": "JORFTEXT000053042520",
+     "titre": "Décret n° 2025-1228 du 17 décembre 2025 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053042520"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.25",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "passage": "le montant du minimum garanti prévu à l'article L. 3231-12 du code du travail est fixé à 4,35 € en métropole",
+    "source": {
+     "reference": "JORFTEXT000054126589",
+     "titre": "Arrêté du 22 mai 2026 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054126589"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.35",
+    "valide_du": "2026-06-01"
+   }
+  ],
+  "pss.mensuel": [
+   {
+    "passage": "valeur mensuelle : 3 428 euros",
+    "source": {
+     "reference": "JORFTEXT000039440180",
+     "titre": "Arrêté du 2 décembre 2019 portant fixation du plafond de la sécurité sociale pour 2020",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000039440180"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3428",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 3 428 euros",
+    "source": {
+     "reference": "JORFTEXT000042748904",
+     "titre": "Arrêté du 22 décembre 2020 portant fixation du plafond de la sécurité sociale pour 2021",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042748904"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3428",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 3 428 euros",
+    "source": {
+     "reference": "JORFTEXT000044514684",
+     "titre": "Arrêté du 15 décembre 2021 portant fixation du plafond de la sécurité sociale pour 2022",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044514684"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3428",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 3 666 euros",
+    "source": {
+     "reference": "JORFTEXT000046745084",
+     "titre": "Arrêté du 9 décembre 2022 portant fixation du plafond de la sécurité sociale pour 2023",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046745084"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3666",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 3 864 euros",
+    "source": {
+     "reference": "JORFTEXT000048708693",
+     "titre": "Arrêté du 19 décembre 2023 portant fixation du plafond de la sécurité sociale pour 2024",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048708693"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3864",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 3 925 euros",
+    "source": {
+     "reference": "JORFTEXT000050854392",
+     "titre": "Arrêté du 19 décembre 2024 portant fixation du plafond de la sécurité sociale pour 2025",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050854392"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3925",
+    "valide_du": "2025-01-01"
+   },
+   {
+    "passage": "valeur mensuelle : 4 005 euros",
+    "source": {
+     "reference": "JORFTEXT000053143451",
+     "titre": "Arrêté du 22 décembre 2025 portant fixation du plafond de la sécurité sociale pour 2026",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053143451"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4005",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "reduction_generale.puissance": [
+   {
+    "passage": "la valeur P est fixée à 1,75.",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.75",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "passage": "la valeur P est fixée à 1,75.",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.75",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "passage": "la valeur P est fixée à 1,75.",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.75",
+    "valide_du": "2026-11-11"
+   }
+  ],
+  "reduction_generale.seuil": [
+   {
+    "passage": "La valeur du coefficient décroît en fonction du rapport mentionné au deuxième alinéa du présent III et devient nulle lorsque ce rapport est égal à 1,6",
+    "source": {
+     "reference": "LEGIARTI000038834546",
+     "titre": "Code de la sécurité sociale, article L241-13, version du 2019-09-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038834546"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.6",
+    "valide_du": "2019-09-01"
+   },
+   {
+    "passage": "La valeur du coefficient décroît en fonction du rapport mentionné au deuxième alinéa du présent III et devient nulle lorsque ce rapport est égal à 1,6",
+    "source": {
+     "reference": "LEGIARTI000042912368",
+     "titre": "Code de la sécurité sociale, article L241-13, version du 2021-01-01",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042912368"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.6",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "passage": "Le montant prévu au deuxième alinéa du I de l' article L. 241-13 est égal à 1,6 fois le montant du salaire minimum de croissance applicable au 1er janvier 2025",
+    "source": {
+     "reference": "LEGIARTI000051434570",
+     "titre": "Code de la sécurité sociale, article D241-6, version du 2025-04-07 (décret n° 2025-318)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051434570"
+    },
+    "territoire": "nat_FR",
+    "valeur": "1.6",
+    "valide_du": "2025-01-01"
+   },
+   {
+    "passage": "I. - Le montant prévu au deuxième alinéa du I l'article L. 241-13 est fixé à trois fois le montant du salaire minimum de croissance en vigueur. II. - Le coefficient prévu au deuxième alinéa du III de l'article L. 241-13 est déterminé par application de la formule suivante : Coefficient = T min + (T delta × [(1/2) × (3 × SMIC calculé pour un an / rémunération annuelle brute - 1)]",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "passage": "I. - Le montant prévu au dernier alinéa du II de l'article L. 241-13 est fixé à trois fois le montant du salaire minimum de croissance applicable au 1 er janvier 2026. II. - Le coefficient prévu au deuxième alinéa du III de l'article L. 241-13 est déterminé par application de la formule suivante : Coefficient = Tmin + (Tdelta × [(1/2) × (3 × salaire minimum calculé pour un an / rémunération annuelle brute - 1)]",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "passage": "I. - Le montant prévu au dernier alinéa du II de l'article L. 241-13 est fixé à trois fois le montant du salaire minimum de croissance applicable au 1 er janvier 2026. II. - Le coefficient prévu au deuxième alinéa du III de l'article L. 241-13 est déterminé par application de la formule suivante : Coefficient = Tmin + (Tdelta × [(1/2) × (3 × salaire minimum calculé pour un an / rémunération annuelle brute - 1)]",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "3",
+    "valide_du": "2026-11-11"
+   }
+  ],
+  "reduction_generale.t_delta": [
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l'article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - T min = 0,0200 ; - T delta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - T min = 0,0200 ; - T delta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3821",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3821",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3821",
+    "valide_du": "2026-11-11"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l'article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - T min = 0,0200 ; - T delta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - T min = 0,0200 ; - T delta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3781",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3781",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.3781",
+    "valide_du": "2026-11-11"
+   }
+  ],
+  "reduction_generale.t_min": [
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l'article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - T min = 0,0200 ; - T delta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - T min = 0,0200 ; - T delta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "coordonnees": {
+     "effectif": "50_et_plus"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-11-11"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l'article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - T min = 0,0200 ; - T delta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - T min = 0,0200 ; - T delta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000053302444",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-01-01 (décrets n° 2025-887 et 2025-1446)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053302444"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000054252241",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-06-15 (décret n° 2026-509)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054252241"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-06-15"
+   },
+   {
+    "coordonnees": {
+     "effectif": "moins_de_50"
+    },
+    "passage": "III. - Pour les revenus d'activité dus par les employeurs redevables de la contribution mentionnée à l' article L. 813-4 du code de la construction et de l'habitat au taux prévu au 1° de l'article L. 813-5 du même code : - Tmin = 0,0200 ; - Tdelta = 0,3781 ; - Pour les revenus d'activité dus par les employeurs redevables de cette même contribution au taux prévu au 2° de l'article L. 813-5 : - Tmin = 0,0200 ; - Tdelta = 0,3821",
+    "source": {
+     "reference": "LEGIARTI000055077174",
+     "titre": "Code de la sécurité sociale, article D241-7, version du 2026-11-11 (décret n° 2026-1037)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000055077174"
+    },
+    "territoire": "nat_FR",
+    "valeur": "0.02",
+    "valide_du": "2026-11-11"
+   }
+  ],
+  "smic.horaire": [
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 8,82 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000020793248",
+     "titre": "Décret n° 2009-800 du 24 juin 2009 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000020793248"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.82",
+    "valide_du": "2009-07-01"
+   },
+   {
+    "passage": "2211-1 du code du travail, le montant du salaire minimum de croissance est porté à 8,86 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000021494792",
+     "titre": "Décret n° 2009-1584 du 17 décembre 2009 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000021494792"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.86",
+    "valide_du": "2010-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,00 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000023246595",
+     "titre": "Décret n° 2010-1584 du 17 décembre 2010 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000023246595"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9",
+    "valide_du": "2011-01-01"
+   },
+   {
+    "passage": "le montant du salaire minimum de croissance applicable en métropole, dans les départements d'outre-mer et dans les collectivités d'outre-mer de Saint-Barthélemy, de Saint-Martin et de Saint-Pierre-et-Miquelon s'établira, à compter de cette date, à 9,19 € de l'heure",
+    "source": {
+     "reference": "JORFTEXT000024874223",
+     "titre": "Arrêté du 29 novembre 2011 relatif au relèvement du salaire minimum de croissance en métropole, dans les départements d'outre-mer et dans les collectivités de Saint-Barthélemy, de Saint-Martin et de Saint-Pierre-et-Miquelon",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000024874223"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.19",
+    "valide_du": "2011-12-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,22 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000025016179",
+     "titre": "Décret n° 2011-1926 du 22 décembre 2011 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000025016179"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.22",
+    "valide_du": "2012-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,40 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000026083662",
+     "titre": "Décret n° 2012-828 du 28 juin 2012 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026083662"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.4",
+    "valide_du": "2012-07-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,43 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000026805556",
+     "titre": "Décret n° 2012-1429 du 19 décembre 2012 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000026805556"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.43",
+    "valide_du": "2013-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,53 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000028347432",
+     "titre": "Décret n° 2013-1190 du 19 décembre 2013 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028347432"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.53",
+    "valide_du": "2014-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail, le montant du salaire minimum de croissance est porté à 9,61 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000029954040",
+     "titre": "Décret n° 2014-1569 du 22 décembre 2014 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000029954040"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.61",
+    "valide_du": "2015-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,67 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000031638526",
+     "titre": "Décret n° 2015-1688 du 17 décembre 2015 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000031638526"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.67",
+    "valide_du": "2016-01-01"
+   },
+   {
+    "passage": "2211-1 du code du travail , le montant du salaire minimum de croissance est porté à 9,76 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000033675194",
+     "titre": "Décret n° 2016-1818 du 22 décembre 2016 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033675194"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.76",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "passage": "1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 9,88 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000036240563",
+     "titre": "Décret n° 2017-1719 du 20 décembre 2017 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036240563"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9.88",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "passage": "1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,03 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000037833206",
+     "titre": "Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037833206"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.03",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,15 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000039638018",
+     "titre": "Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000039638018"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.15",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 7,66 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000039638018",
+     "titre": "Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000039638018"
+    },
+    "territoire": "dep_976",
+    "valeur": "7.66",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 7,74 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000042677359",
+     "titre": "Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042677359"
+    },
+    "territoire": "dep_976",
+    "valeur": "7.74",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,25 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000042677359",
+     "titre": "Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042677359"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.25",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,48 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000044126026",
+     "titre": "Arrêté du 27 septembre 2021 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044126026"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.48",
+    "valide_du": "2021-10-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 7,91 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000044126026",
+     "titre": "Arrêté du 27 septembre 2021 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044126026"
+    },
+    "territoire": "dep_976",
+    "valeur": "7.91",
+    "valide_du": "2021-10-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,57 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000044546647",
+     "titre": "Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044546647"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.57",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 7,98 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000044546647",
+     "titre": "Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044546647"
+    },
+    "territoire": "dep_976",
+    "valeur": "7.98",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,85 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000045602317",
+     "titre": "Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045602317"
+    },
+    "territoire": "nat_FR",
+    "valeur": "10.85",
+    "valide_du": "2022-05-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,19 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000045602317",
+     "titre": "Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045602317"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.19",
+    "valide_du": "2022-05-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 11,07 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000046113517",
+     "titre": "Arrêté du 29 juillet 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046113517"
+    },
+    "territoire": "nat_FR",
+    "valeur": "11.07",
+    "valide_du": "2022-08-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,35 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000046113517",
+     "titre": "Arrêté du 29 juillet 2022 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046113517"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.35",
+    "valide_du": "2022-08-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,51 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000046780043",
+     "titre": "Décret n° 2022-1608 du 22 décembre 2022 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046780043"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.51",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 11,27 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000046780043",
+     "titre": "Décret n° 2022-1608 du 22 décembre 2022 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000046780043"
+    },
+    "territoire": "nat_FR",
+    "valeur": "11.27",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 11,52 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000047495817",
+     "titre": "Arrêté du 26 avril 2023 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047495817"
+    },
+    "territoire": "nat_FR",
+    "valeur": "11.52",
+    "valide_du": "2023-05-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,70 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000047495817",
+     "titre": "Arrêté du 26 avril 2023 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047495817"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.7",
+    "valide_du": "2023-05-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 11,65 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000048604676",
+     "titre": "Décret n° 2023-1216 du 20 décembre 2023 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048604676"
+    },
+    "territoire": "nat_FR",
+    "valeur": "11.65",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,80 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000048604676",
+     "titre": "Décret n° 2023-1216 du 20 décembre 2023 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048604676"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.8",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 11,88 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000050392683",
+     "titre": "Décret n° 2024-951 du 23 octobre 2024 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050392683"
+    },
+    "territoire": "nat_FR",
+    "valeur": "11.88",
+    "valide_du": "2024-11-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 8,98 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000050392683",
+     "titre": "Décret n° 2024-951 du 23 octobre 2024 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050392683"
+    },
+    "territoire": "dep_976",
+    "valeur": "8.98",
+    "valide_du": "2024-11-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 9,33 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000053042520",
+     "titre": "Décret n° 2025-1228 du 17 décembre 2025 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053042520"
+    },
+    "territoire": "dep_976",
+    "valeur": "9.33",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 12,02 euros l'heure",
+    "source": {
+     "reference": "JORFTEXT000053042520",
+     "titre": "Décret n° 2025-1228 du 17 décembre 2025 portant relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053042520"
+    },
+    "territoire": "nat_FR",
+    "valeur": "12.02",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "passage": "En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 12,31 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000054126589",
+     "titre": "Arrêté du 22 mai 2026 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054126589"
+    },
+    "territoire": "nat_FR",
+    "valeur": "12.31",
+    "valide_du": "2026-06-01"
+   },
+   {
+    "passage": "A Mayotte, son montant est fixé à 9,56 € l'heure",
+    "source": {
+     "reference": "JORFTEXT000054126589",
+     "titre": "Arrêté du 22 mai 2026 relatif au relèvement du salaire minimum de croissance",
+     "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054126589"
+    },
+    "territoire": "dep_976",
+    "valeur": "9.56",
+    "valide_du": "2026-06-01"
+   }
+  ],
+  "smic.mensuel": [
+   {
+    "territoire": "nat_FR",
+    "valeur": "1337.7",
+    "valide_du": "2009-07-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1343.77",
+    "valide_du": "2010-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1365",
+    "valide_du": "2011-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1393.82",
+    "valide_du": "2011-12-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1398.37",
+    "valide_du": "2012-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1425.67",
+    "valide_du": "2012-07-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1430.22",
+    "valide_du": "2013-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1445.38",
+    "valide_du": "2014-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1457.52",
+    "valide_du": "2015-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1466.62",
+    "valide_du": "2016-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1480.27",
+    "valide_du": "2017-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1498.47",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1521.22",
+    "valide_du": "2019-01-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1161.77",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1539.42",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1173.9",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1554.58",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1589.47",
+    "valide_du": "2021-10-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1199.68",
+    "valide_du": "2021-10-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1603.12",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1210.3",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1645.58",
+    "valide_du": "2022-05-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1242.15",
+    "valide_du": "2022-05-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1266.42",
+    "valide_du": "2022-08-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1678.95",
+    "valide_du": "2022-08-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1709.28",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1290.68",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1747.2",
+    "valide_du": "2023-05-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1319.5",
+    "valide_du": "2023-05-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1334.67",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1766.92",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1361.97",
+    "valide_du": "2024-11-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1801.8",
+    "valide_du": "2024-11-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1415.05",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1823.03",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "territoire": "nat_FR",
+    "valeur": "1867.02",
+    "valide_du": "2026-06-01"
+   },
+   {
+    "territoire": "dep_976",
+    "valeur": "1449.93",
+    "valide_du": "2026-06-01"
+   }
+  ],
+  "taxe_salaires.limite": [
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 004 € et 15 981 € et à 13,60 % pour la fraction excédant 15 981 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000042159738",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2020 (incorporées par le décret n° 2020-897)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042159738"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8004",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 020 € et 16 013 € et à 13,60 % pour la fraction excédant 16 013 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000043662490",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2021 (incorporées par le décret n° 2021-744)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043662490"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8020",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 133 € et 16 237 € et à 13,60 % pour la fraction excédant 16 237 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000045764651",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2022 (incorporées par le décret n° 2022-782)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000045764651"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8133",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 573 € et 17 114 € et à 13,60 % pour la fraction excédant 17 114 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000047622885",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2023 (incorporées par le décret n° 2023-422)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047622885"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8573",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 985 € et 17 936 € et à 13,60 % pour la fraction excédant 17 936 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000049641628",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2024 (incorporées par le décret n° 2024-496)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049641628"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8985",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 9 147 € et 18 259 € et à 13,60 % pour la fraction excédant 18 259 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000051764961",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2025 (incorporées par le décret n° 2025-547)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051764961"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9147",
+    "valide_du": "2025-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 9 229 € et 18 423 € et à 13,60 % pour la fraction excédant 18 423 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000054370158",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2026 (incorporées par le décret n° 2026-562)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054370158"
+    },
+    "territoire": "nat_FR",
+    "valeur": "9229",
+    "valide_du": "2026-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 004 € et 15 981 € et à 13,60 % pour la fraction excédant 15 981 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000042159738",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2020 (incorporées par le décret n° 2020-897)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042159738"
+    },
+    "territoire": "nat_FR",
+    "valeur": "15981",
+    "valide_du": "2020-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 020 € et 16 013 € et à 13,60 % pour la fraction excédant 16 013 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000043662490",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2021 (incorporées par le décret n° 2021-744)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043662490"
+    },
+    "territoire": "nat_FR",
+    "valeur": "16013",
+    "valide_du": "2021-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 133 € et 16 237 € et à 13,60 % pour la fraction excédant 16 237 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000045764651",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2022 (incorporées par le décret n° 2022-782)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000045764651"
+    },
+    "territoire": "nat_FR",
+    "valeur": "16237",
+    "valide_du": "2022-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 573 € et 17 114 € et à 13,60 % pour la fraction excédant 17 114 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000047622885",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2023 (incorporées par le décret n° 2023-422)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047622885"
+    },
+    "territoire": "nat_FR",
+    "valeur": "17114",
+    "valide_du": "2023-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 8 985 € et 17 936 € et à 13,60 % pour la fraction excédant 17 936 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000049641628",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2024 (incorporées par le décret n° 2024-496)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049641628"
+    },
+    "territoire": "nat_FR",
+    "valeur": "17936",
+    "valide_du": "2024-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 9 147 € et 18 259 € et à 13,60 % pour la fraction excédant 18 259 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000051764961",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2025 (incorporées par le décret n° 2025-547)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051764961"
+    },
+    "territoire": "nat_FR",
+    "valeur": "18259",
+    "valide_du": "2025-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 9 229 € et 18 423 € et à 13,60 % pour la fraction excédant 18 423 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000054370158",
+     "titre": "Code général des impôts, article 231, 2 bis, limites de 2026 (incorporées par le décret n° 2026-562)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054370158"
+    },
+    "territoire": "nat_FR",
+    "valeur": "18423",
+    "valide_du": "2026-01-01"
+   }
+  ],
+  "taxe_salaires.taux": [
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de 4,25 % prévu au 1 est réduit à 2,95 %, dans les départements de la Guadeloupe, de la Martinique et de la Réunion, et à 2,55 % dans les départements de la Guyane et de Mayotte.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "dep_976",
+    "valeur": "2.55",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Les sommes payées à titre de rémunérations aux salariés, à l'exception de celles correspondant aux prestations de sécurité sociale versées par l'entremise de l'employeur, sont soumises à une taxe égale à 4,25 % de leur montant",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "nat_FR",
+    "valeur": "4.25",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de 4,25 % prévu au 1 est réduit à 2,95 %, dans les départements de la Guadeloupe, de la Martinique et de la Réunion, et à 2,55 % dans les départements de la Guyane et de Mayotte.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "dep_974",
+    "valeur": "2.95",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de 4,25 % prévu au 1 est réduit à 2,95 %, dans les départements de la Guadeloupe, de la Martinique et de la Réunion, et à 2,55 % dans les départements de la Guyane et de Mayotte.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "dep_972",
+    "valeur": "2.95",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de 4,25 % prévu au 1 est réduit à 2,95 %, dans les départements de la Guadeloupe, de la Martinique et de la Réunion, et à 2,55 % dans les départements de la Guyane et de Mayotte.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "dep_971",
+    "valeur": "2.95",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t1"
+    },
+    "passage": "Le taux de 4,25 % prévu au 1 est réduit à 2,95 %, dans les départements de la Guadeloupe, de la Martinique et de la Réunion, et à 2,55 % dans les départements de la Guyane et de Mayotte.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "dep_973",
+    "valeur": "2.55",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t2"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 7 721 € et 15 417 € et à 13,60 % pour la fraction excédant 15 417 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "nat_FR",
+    "valeur": "8.5",
+    "valide_du": "2018-01-01"
+   },
+   {
+    "coordonnees": {
+     "tranche": "t3"
+    },
+    "passage": "Le taux de la taxe sur les salaires prévue au 1 est porté de 4,25 % à 8,50 % pour la fraction comprise entre 7 721 € et 15 417 € et à 13,60 % pour la fraction excédant 15 417 € de rémunérations individuelles annuelles.",
+    "source": {
+     "reference": "LEGIARTI000036431932",
+     "titre": "Code général des impôts, article 231, version du 2018-01-01 (loi n° 2017-1837, art. 88 et 90)",
+     "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036431932"
+    },
+    "territoire": "nat_FR",
+    "valeur": "13.6",
+    "valide_du": "2018-01-01"
+   }
+  ]
+ }
+}

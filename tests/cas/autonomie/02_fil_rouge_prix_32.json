@@ -1,0 +1,43 @@
+{
+ "id": "fil_rouge_prix_32",
+ "description": "Même mois, prix porté à 32 €/h : le reste monte, l'APA ne change pas.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "26"
+   },
+   "provenance": "notification",
+   "taux_participation": "20"
+  },
+  "realise": {
+   "heures_dans_plan": "20",
+   "heures_hors_plan": "2",
+   "prix_horaire": "32",
+   "provenance": "facture"
+  },
+  "besoin": {
+   "heures_estimees": "30",
+   "provenance": "declaration"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "facture_brute": "704.00",
+   "apa_estimee": "416.00",
+   "depassement": "120.00",
+   "hors_plan": "64.00",
+   "reste_avant_fiscalite": "288.00"
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "id": "pch_accordee_62_ans",
+ "description": "62 ans, PCH accordée avant 60 ans : non-cumul et droit d'option à examiner, aucun montant PCH.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 62,
+   "gir": null,
+   "domicile": true,
+   "provenance": "declaration",
+   "pch_accordee": true
+  }
+ },
+ "attendu": {
+  "statut": "partiel",
+  "controles": {
+   "age": "ok",
+   "gir": "inconnu",
+   "pch": "a_verifier"
+  }
+ }
+}

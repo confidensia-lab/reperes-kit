@@ -1,0 +1,40 @@
+{
+ "id": "tarif_sous_le_socle",
+ "description": "Tarif de prise en charge notifié de 23 €/h, sous le tarif socle de 25 € : calcul conduit, signalement à vérifier.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "23"
+   },
+   "taux_participation": "20",
+   "provenance": "notification"
+  },
+  "realise": {
+   "heures_dans_plan": "24",
+   "heures_hors_plan": "0",
+   "prix_horaire": "30",
+   "provenance": "facture"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "base_utilisee": "552.00",
+   "participation": "110.40",
+   "apa_estimee": "441.60",
+   "depassement": "168.00",
+   "reste_avant_fiscalite": "278.40"
+  },
+  "signalement": "inférieur au tarif socle"
+ }
+}

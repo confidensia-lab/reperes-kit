@@ -1,0 +1,36 @@
+{
+ "id": "taux_invalide",
+ "description": "Taux notifié de 95 % : refusé (90 % au plus).",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "24",
+    "tarif": "26"
+   },
+   "provenance": "notification",
+   "taux_participation": "95"
+  },
+  "realise": {
+   "heures_dans_plan": "20",
+   "heures_hors_plan": "2",
+   "prix_horaire": "31",
+   "provenance": "facture"
+  },
+  "besoin": {
+   "heures_estimees": "30",
+   "provenance": "declaration"
+  }
+ },
+ "attendu": {
+  "statut": "erreur"
+ }
+}

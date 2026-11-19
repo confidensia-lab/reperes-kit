@@ -1,0 +1,38 @@
+{
+ "id": "non_versement",
+ "description": "APA de 31,20 € après participation, au plus 3 SMIC horaires (36,06 €) : non versée.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 3,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "plan": {
+   "statut": "notifie",
+   "aide_humaine": {
+    "heures": "2",
+    "tarif": "26"
+   },
+   "provenance": "notification",
+   "taux_participation": "40"
+  },
+  "realise": {
+   "heures_dans_plan": "2",
+   "heures_hors_plan": "0",
+   "prix_horaire": "26",
+   "provenance": "facture"
+  }
+ },
+ "attendu": {
+  "statut": "ok",
+  "financement": {
+   "base_utilisee": "52.00",
+   "participation": "20.80",
+   "apa_estimee": "0.00",
+   "reste_avant_fiscalite": "52.00"
+  }
+ }
+}

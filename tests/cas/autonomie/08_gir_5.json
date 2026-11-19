@@ -1,0 +1,30 @@
+{
+ "id": "gir_5",
+ "description": "GIR 5 communiqué : aucune APA simulée.",
+ "entree": {
+  "date": "2026-01-15",
+  "periode": "2026-01",
+  "personne": {
+   "age": 82,
+   "gir": 5,
+   "domicile": true,
+   "provenance": "declaration"
+  },
+  "besoin": {
+   "heures_estimees": "10",
+   "provenance": "declaration"
+  }
+ },
+ "attendu": {
+  "statut": "partiel",
+  "controles": {
+   "gir": "non"
+  },
+  "financement": {
+   "apa_estimee": null
+  },
+  "indisponible": [
+   "apa_estimee"
+  ]
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "id": "08_au_dela_du_plafond",
+ "description": "Part de 110 % : rémunération au-delà de 110,7 %, signalée.",
+ "entree": {
+  "date": "2026-07-15",
+  "part_esat": {
+   "pct_smic": "110"
+  }
+ },
+ "attendu": {
+  "statut": "partiel",
+  "smic_mensuel": "1867.02",
+  "part_esat": {
+   "pct_smic": "110.00",
+   "mensuel": "2053.72"
+  },
+  "aide_au_poste": {
+   "pct_smic": "5.70",
+   "mensuel": "106.42"
+  },
+  "remuneration_garantie": {
+   "pct_smic": "115.70",
+   "mensuel": "2160.14"
+  },
+  "bornes": {
+   "minimum": "1039.93",
+   "maximum": "2066.79"
+  },
+  "interessement_plafond_annuel": "12322.32",
+  "cotisations": {
+   "net_travailleur": "1728.54",
+   "cotisations_esat": "819.90",
+   "compensation_etat": "39.49",
+   "cout_esat": "2834.13",
+   "financement_etat": "145.91"
+  },
+  "controles": {
+   "part_minimale": "ok",
+   "bornes": "non"
+  }
+ }
+}
